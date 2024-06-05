@@ -9,6 +9,8 @@ module.exports = {
       'third-color':'#6ea4bf',
       'fourth-color':'#c2efeb',
       'fifth-color':'#ecfee8',
+      'white':'#ffffff',
+      'black':'#000000', 
     },
 
     extend: {
