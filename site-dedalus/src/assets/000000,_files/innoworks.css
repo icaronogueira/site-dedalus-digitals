@@ -1,0 +1,891 @@
+/*
+##################################################################
+##################################################################
+###															   ###
+###						Innologica Ltd						   ###
+###						Javascript framework				   ###
+###															   ###
+##################################################################
+##################################################################
+*/
+
+
+
+/*
+##################################################################
+##################################################################
+###															   ###
+###							DIALOG							   ###
+###															   ###
+##################################################################
+##################################################################
+*/
+
+
+.inno_shadow_big
+{
+	-webkit-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.4);	
+}
+
+.inno_dialog
+{
+	background-color:#FEFEFE;
+	position:fixed;
+	left:0px;
+	top:0px;
+	overflow:hidden;
+	border-radius: 5px;
+	/*line-height: 1.2rem;*/ /* Please do not add such globals*/
+}
+
+.inno_dialog_modal
+{
+	position:relative;
+	left:auto;
+	right:auto;
+	top:auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+
+.inno_dialog_content
+{
+	overflow:hidden;
+	position:relative;
+	padding: 35px;
+	outline: none !important;
+	font-size: 13px;
+}
+
+.inno_dialog_content_scrollable
+{
+	overflow:auto;
+	-webkit-overflow-scrolling:touch;
+}
+
+.inno_dialog_preferences
+{
+	padding:35px 35px 0 35px;
+}
+
+.inno_dialog_content_kiosk
+{
+	padding:0;
+}
+
+.inno_dialog_title
+{
+	font-size: 16px;
+	font-weight: 500;
+	padding: 35px 35px 0px 35px;
+}
+
+.inno_dialog_alert
+{
+	font-size:14px;
+}
+
+.inno_dialog_title_close_button
+{
+	background-color:#F1F5FA;
+	position:absolute;
+	top:10px;
+	right:10px;
+	font-size:16px;
+}
+
+.inno_dialog_buttonbar
+{
+	position:relative;
+	background-color:#F1F5FA;
+	padding: 0px 36px;
+	border-radius: 0 0 5px 5px;
+	height: 64px;
+	display: flex;
+	align-items: center;
+	/*
+	-webkit-box-shadow: 0px -1px 4px 0px #CCC;
+	-moz-box-shadow: 0px -1px 4px 0px #CCC;
+	box-shadow: 0px -1px 4px 0px #CCC;
+	*/
+}
+
+.inno_dialog_buttonbar_container
+{
+	position:absolute;
+	right:36px;
+	top:16px;
+}
+
+.inno_dialog_buttonbar_button
+{
+	height:36px;
+	line-height:36px;
+	padding:0 12px 0 12px;
+	float:left;
+	background:#f3f4f7;
+	cursor:pointer;
+	font-size:15px;
+	position:relative;
+	color:#1a2433;
+	border:0 none;
+	border-radius:3px;
+	margin:0 0 0 8px;
+	box-shadow: none;
+	/*text-transform: uppercase;*/
+	outline:none;
+}
+.inno_dialog_drag_handle
+{
+	position:absolute;
+	top:0;
+	left:0;
+	height:35px;
+	width:100%;
+	cursor:move;
+}
+
+.inno_dialog_buttonbar_button:nth-child(1)
+{
+	background-color: #3d6baa;
+	color: #ffffff;
+	font-weight: 500;
+}
+
+.inno_dialog_buttonbar_button:nth-child(1):hover:enabled {
+	background: #2d4e7c;
+}
+
+.inno_dialog_buttonbar_button:hover:enabled
+{
+	background-color:#D7DDE6;
+	border-top:0 none;
+	border-right:0 none;
+	border-left:0 none;
+}
+
+.inno_dialog_buttonbar_button:focus 
+{
+	border:0 none;
+	box-shadow: 0 0 0 3px rgba(0, 167, 246, 0.6);
+}
+
+.inno_dialog_buttonbar_button:disabled
+{
+	color:rgba(46, 65, 92, 0.40);
+	border:0 none;
+	background:#F2F6FA;
+}
+
+.inno_dialog_modal_overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    z-index: 1000;	
+}
+
+.inno_dialog_scroll_overlay
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1001;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.inno_dialog_overflow
+{
+	overflow:visible;
+}
+
+.inno_dialog_close_button 
+{
+	position: absolute;
+	width: 29px;
+	height: 28px;
+	line-height: 34px;
+	text-align: center;
+	right: 7px;
+	top: 4px;
+	cursor: pointer;
+	opacity: .4;
+	filter: alpha(opacity=40);
+}
+
+.inno_dialog_close_button_titled
+{
+	top: 1px;
+}
+
+.inno_dialog_close_button:hover
+{
+	opacity: 1;
+	filter:alpha(opacity=100);
+}
+
+#copy_rule_menu {
+	padding-top:16px;
+}
+
+/*
+##################################################################
+##################################################################
+###															   ###
+###							TOOLBAR							   ###
+###															   ###
+##################################################################
+##################################################################
+*/
+
+.inno_toolbar_switcher
+{
+	display: flex;
+	font-size: 14px;
+	height: 36px;
+	align-items: center;
+	flex: 0 1 auto;
+	min-width: 100px;
+}
+
+.inno_toolbar_switcher_button
+{
+	border: 1px solid #b6c5d8;
+	margin-left: -1px;
+	padding: 6px 12px;
+	z-index: 99;
+	cursor: pointer;
+	color: #53585f;
+	position: relative;
+	min-width: 40px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+
+.inno_toolbar_switcher_button_main_label
+{
+	margin-top: -22px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.inno_toolbar_switcher_button_shadow_label
+{
+	z-index: 1;
+	font-weight: 500;
+	visibility: hidden;
+	height: 22px;
+	white-space: nowrap;
+}
+
+.inno_toolbar_switcher_button:hover
+{
+	color: #1a2433;
+}
+
+.inno_toolbar_switcher_button_active, .inno_toolbar_switcher_button_active:hover
+{
+	/*border: 1px solid #9db5d8;*/
+	/*color: #5775a2;*/
+	border: 1px solid #d1dae6;
+	color: #707D90;
+	background-color: #f9f9fb;
+	z-index: 101;
+	font-weight: 500;
+	transition-timing-function: cubic-bezier(.165,.84,.44,1);
+    transition-property: color, background-color, border-color;
+    transition-duration: 300ms;
+}
+
+.inno_toolbar_switcher:hover .inno_toolbar_switcher_button_active, 
+.inno_toolbar_switcher:hover .inno_toolbar_switcher_button_active:hover
+{
+	background-color: #f5fbff;
+	color: #5b93e1;
+	border: 1px solid #5b93e1;
+}
+
+.inno_toolbar_switcher_button:first-of-type
+{
+	margin-left: 0;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.inno_toolbar_switcher_button:last-of-type
+{
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.inno_toolbar_button
+{
+	height:48px;
+	line-height:52px;
+	padding:0 12px 0 12px;
+	color:#F2F6FA;
+	cursor:pointer;
+	font-size:16px;
+	position:relative;
+	min-width: 16px;
+}
+
+.inno_toolbar_button_short
+{
+	height:29px;
+	line-height:32px;
+	padding:0 7px 0 7px;
+	cursor:pointer;
+}
+
+.inno_toolbar_button_dark_caption
+{
+	color:#9DABC1;
+}
+
+.inno_toolbar_rp_heading
+{
+	height:48px;
+	line-height:48px;
+	font-size:16px;
+	color:#F2F6FA;
+	text-overflow: ellipsis;
+	overflow:hidden;
+	white-space: nowrap;
+	position: relative;
+	padding-right:1px;
+	font-weight: 500;
+	letter-spacing: -0.01rem;
+	min-width: 30px;
+}
+
+.sb_rp_heading_ellipsis
+{
+	text-overflow: ellipsis;
+	overflow:hidden;
+	white-space: nowrap;
+	display: inline-block;
+	min-width: 16px;
+}
+
+.inno_toolbar_rp_heading a:hover
+{
+	text-decoration:underline;
+}
+
+.inno_toolbar_spacer
+{
+	height:48px;
+	min-width:6px;
+}
+
+.inno_toolbar_spacer_footer
+{
+	height:30px;
+}
+
+.inno_toolbar_pipe
+{
+	height:20px;
+	line-height:42px;
+	padding:0;
+	margin-top:10px;
+	border-right:1px solid #364B6F;
+	float:left;
+}
+
+.inno_toolbar_button_wrapper
+{
+	position:relative;
+}
+
+.inno_toolbar_button_narrow
+{
+	padding:0 2px 0 2px;
+}
+
+.inno_toolbar_button_mark_read
+{
+	padding:0 26px 0 12px;
+}
+
+.inno_toolbar_button_mark_read_tick
+{
+	margin-left:-20px;
+}
+
+.inno_toolbar_button_mark_read_tick_hint
+{
+	position:absolute;
+	right:0px;
+	top:0px;
+	width:20px;
+	height:48px;
+}
+
+.inno_toolbar_button:hover .inno_toolbar_button_mark_read_tick_hint
+{
+	background-color:#273347;
+}
+
+.inno_toolbar_button_next_prev
+{
+	padding:0 10px 0 10px;
+}
+
+.inno_toolbar_button_wraper
+{
+	float:left;
+	position:relative;
+}
+.inno_toolbar_button_with_arrow
+{
+	padding:0 12px 0 12px;
+}
+
+.inno_toolbar_button:hover
+{
+	background-color:#1a2433;
+}
+
+.inno_toolbar_button_hover
+{
+	background-color:#1a2433;
+}
+.inno_toolbar_button_caption
+{
+	font-size:14px;
+	position: relative;
+	top: -2px;
+}
+
+#sb_rp_add_gadgets .inno_toolbar_button_caption
+{
+	white-space: nowrap;
+}
+.inno_toolbar_tick_padding
+{
+	padding-left:8px;
+	padding-right:-2px;
+}
+.inno_toolbar_button_submenu_opener_icon
+{
+	font-size:16px;
+	position:absolute;
+	top:7px;
+	right:7px;
+}
+
+.inno_toolbar_button_menu
+{
+	display:none;
+	cursor:default;
+	position:absolute;
+	top:48px;
+	right:0;
+	z-index:70;
+	background-color:#fefefe;
+	border-radius: 3px;
+	color:#1a2433;
+	line-height: 20px;
+	min-width:130px;
+	box-shadow: 0 14px 20px rgba(0, 0, 0, 0.11);
+	padding:12px 0;
+	overflow:auto;
+	overflow-x:hidden;
+	z-index:1200;
+}
+
+.inno_toolbar_button_submenu
+{
+	position:absolute;
+	top:18px;
+	right:0px;
+	display:none;
+	z-index:101;
+	max-width: 180px;
+}
+
+.inno_toolbar_button_menu_icon
+{
+	position: absolute;
+	top: 6px;
+	left: 16px;
+	font-size: 16px;
+}
+
+#sb_rp_settings_menu .inno_toolbar_button_menu_icon
+{
+	top: 8px;
+}
+
+.inno_toolbar_button_menu_item
+{
+	font-size:14px;
+	position:relative;
+	cursor:pointer;
+	padding:4px 36px 4px 40px;
+	/*text-overflow: ellipsis;*/
+	overflow:hidden;
+	max-width:250px;
+	white-space: nowrap;
+}
+.inno_toolbar_button_menu_item_inactive .inno_toolbar_button_menu_icon
+{
+	opacity:0.3;
+	filter:alpha(opacity=30);
+}
+.inno_toolbar_button_menu_item_disabled
+{
+	opacity:0.3;
+	filter:alpha(opacity=30);
+	cursor: not-allowed;
+}
+
+.inno_toolbar_button_menu_item:hover
+{
+	background-color:#f1f5fa;
+}
+
+.inno_toolbar_button_menu_item.inno_toolbar_button_menu_item_filter:hover {
+	background: transparent;
+}
+
+.inno_toolbar_button_menu_item_filter_input_wrapper
+{
+	position: relative;
+	width:132px;
+}
+
+.inno_toolbar_button_menu_item_filter_icon
+{
+	position: absolute;
+	top: 5px;
+	right: 12px;
+	font-size: 16px;
+}
+
+.inno_toolbar_button_menu_item_filter_input
+{
+	width:120px;
+}
+.inno_toolbar_button_menu_heading
+{
+	font-size:11px;
+	padding: 4px 16px;
+	text-overflow: ellipsis;
+	max-width:200px;
+	overflow:hidden;
+	white-space: nowrap;
+	font-style:normal;
+	letter-spacing: 0.04rem;
+	text-transform: uppercase;
+	color: #8a8e93;
+}
+.inno_toolbar_button_menu_more
+{
+	text-align:right;
+	font-size:11px;
+	padding-right:8px;
+}
+.inno_toolbar_button_menu_line
+{
+	border-top:1px solid #e0e5eb;
+	margin:5px 0 5px 0;
+}
+.inno_toolbar_button_menu_more_wrapper
+{
+	display:none;
+}
+
+.inno_toolbar_tp_search_overlay
+{
+	position:absolute;
+	top:9px;
+	right:0px;
+	cursor:pointer;
+	width:22px;
+	text-align:center;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.inno_toolbar_tp_search_overlay:hover, .sb_tp_search_overlay_submit:hover
+{
+	background-color: #375680;
+}
+
+
+
+/*
+##################################################################
+##################################################################
+###															   ###
+###							TABS							   ###
+###															   ###
+##################################################################
+##################################################################
+*/
+
+.inno_tabs_wrapper
+{
+	overflow:hidden;
+}
+
+.inno_tabs_header
+{
+	display:block;
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	border-bottom: 1px solid #e0e5eb;
+}
+
+.inno_tabs_header:before, .inno_tabs_header:after 
+{
+    content:"";
+    display:table;
+}
+.inno_tabs_header:after 
+{
+    clear:both;
+}
+
+.inno_tabs_header 
+{
+    zoom:1;
+}
+
+.inno_tabs_tab
+{
+	text-decoration: none;
+	list-style: none;
+	float: left;
+	white-space: nowrap;
+	cursor:pointer;
+	color:#8a8e93;
+	padding: 12px 0 12px 0;
+	text-transform: uppercase;
+	letter-spacing: 0.6px;
+	font-size: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-left: 10px;
+	margin-right: 10px;
+	position: relative;
+}
+
+.inno_tabs_tab:hover
+{
+	color: #4E71AD;
+	border-color: #4E71AD;
+}
+
+.inno_tabs_tab:active
+{
+	color: #5B93E1;
+}
+
+.inno_tabs_tab:first-of-type
+{
+	margin-left: 0;
+}
+
+.inno_tabs_tab_current, .inno_tabs_tab_current:hover
+{
+	color: #5B93E1;				
+}
+
+.inno_tabs_tab_current:after 
+{
+    background: #5B93E1;
+}
+
+.inno_tabs_tab_current:after 
+{
+    content: '';
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+}
+
+.inno_tabs_content
+{
+	display:none;
+	padding:10px 0 10px 0;
+}
+
+.inno_tabs_content:before
+{
+	content: '';
+	clear:both;
+}
+
+
+
+/*
+##################################################################
+##################################################################
+###															   ###
+###							AUTOCOMPLETE					   ###
+###															   ###
+##################################################################
+##################################################################
+*/
+
+.inno_autocomplete_wrapper
+{
+	cursor:default;
+	position:absolute;
+	z-index:2001;
+	background-color:#fefefe;
+	color:#1a2433;
+	line-height: 20px;
+	min-width:130px;
+	box-shadow: 0 14px 20px rgba(0, 0, 0, 0.11);
+	padding:12px 0;
+	overflow:auto;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+.inno_autocomplete_item
+{
+	font-size: 13px;
+	position:relative;
+	cursor:pointer;
+	padding:4px 36px 4px 40px;
+	text-overflow: ellipsis;
+	overflow:hidden;
+	max-width:800px;
+	white-space: nowrap;
+}
+
+.inno_autocomplete_item_selected
+{
+	background-color:#D7DDE6;
+}
+
+.inno_autocomplete_line
+{
+	border-top: 1px solid #C3CCD9;
+	margin: 5px 0 5px 0;
+}
+
+.inno_autocomplete_heading
+{
+	font-size: 10px;
+	padding: 4px 16px;
+	text-overflow: ellipsis;
+	/*max-width: 200px;*/
+	overflow: hidden;
+	white-space: nowrap;
+	font-style: normal;
+	letter-spacing: 0.04rem;
+	text-transform: uppercase;
+	color: #8a8e93;
+	position: relative;
+}
+
+/*
+##########################################################
+##########################################################
+###													   ###
+###							LOADER					   ###
+###													   ###
+##########################################################
+##########################################################
+*/
+
+.inno_loader, .inno_loader:before, .inno_loader:after 
+{
+	border-radius: 50%;
+	width: 2.5em;
+	height: 2.5em;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: load7 1.8s infinite ease-in-out;
+	animation: load7 1.8s infinite ease-in-out;
+}
+
+.inno_loader 
+{
+	font-size: 10px;
+	margin: 0 auto;
+	position: relative;
+	text-indent: -9999em;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+
+.inno_loader_high
+{
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.inno_dialog .inno_loader_high
+{
+	margin-top: 0px;
+	margin-bottom: 45px;
+}
+
+.inno_loader:before, .inno_loader:after 
+{
+	content: '';
+	position: absolute;
+	top: 0;
+}
+
+.inno_loader:before 
+{
+	left: -3.5em;
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+
+.inno_loader:after {
+	left: 3.5em;
+}
+
+@-webkit-keyframes load7 {
+	0%, 80%, 100% 
+	{
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% 
+	{
+		box-shadow: 0 2.5em 0 0;
+	}
+}
+
+@keyframes load7 {
+	0%, 80%, 100% 
+	{
+    	box-shadow: 0 2.5em 0 -1.3em;
+    }
+    40%
+    {
+    	box-shadow: 0 2.5em 0 0;
+    }
+}

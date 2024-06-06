@@ -1,0 +1,1375 @@
+.pricing_wrapper
+{
+	max-width: 940px;
+	margin: 40px auto 0 auto;
+	text-align: left;
+}
+
+#pricing_wrapper_public .pricing_wrapper
+{
+	max-width: 1140px;
+}
+
+.pricing_header
+{
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 36px;
+}
+
+.pricing_table
+{
+	/*overflow: hidden;*/
+	font-size: 13px;
+}
+
+.pricing_table_aux
+{
+	margin-bottom: 8px;
+}
+
+.pricing_wrapper .pricing_table.pricing_table_aux
+{
+	margin-bottom: 8px;
+	z-index: 100;
+	position: relative;
+}
+
+.pricing_table_main
+{
+	border: 1px solid #e0e5eb; /* ! */
+	border-radius: 5px;
+	margin-bottom: 40px;
+}
+
+.pricing_table_row
+{
+	display: flex;
+	flex-wrap: nowrap;
+	height: 100%;
+	position: relative;
+}
+
+.pricing_plans_row_sticky
+{
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: #FEFEFE;
+}
+
+.pricing_table_cell
+{
+	box-sizing: border-box;
+	position: relative;
+	border-right: 1px solid #e0e5eb; /* ! */
+	flex: 1;
+}
+
+.pricing_table_row .pricing_table_cell
+{
+	/*border-bottom: 1px solid transparent;*/
+}
+
+.pricing_table_row:last-child .pricing_table_cell
+{
+	border-bottom: 0 none;
+}
+
+.pricing_plans_row .pricing_table_cell
+{
+	border-bottom: 1px solid #e0e5eb; /* ! */
+}
+
+.pricing_table_cell_centered
+{
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	align-items: stretch; 
+}
+
+.pricing_table_cell:last-child
+{
+	border-right: 0 none;
+}
+
+.pricing_table_top_cell
+{
+	display: flex;
+	flex: 1;
+	max-width: initial;
+	padding: 0;
+}
+
+.pricing_table_discount_div
+{
+	position: relative;
+	flex: 1;
+	align-self: flex-start;
+}
+
+.pricing_table_discount_div_main
+{
+	font-size: 14px;
+	font-weight: 500;
+	color: #00a7f6;
+}
+
+.pricing_table_discount_div_main span.icon16
+{
+	color: #00a7f6;
+	position: relative;
+	top: 1px;
+}
+
+.pricing_table_vat_div
+{
+	align-self: flex-end;
+	flex: 1;
+	text-align: right;
+	font-size: 13px;
+}
+
+.pricing_plans_row .pricing_table_cell.pricing_table_trial_cell
+{
+	padding: 24px 16px;
+}
+
+.pricing_trial_heading
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.pricing_trial_description
+{
+	font-size: 14px;
+	margin: 12px 0;
+	line-height: 1.2rem;
+}
+
+.pricing_table_main_cell .pricing_plans_upgrade_button
+{
+	position: absolute;
+	bottom: 20px;
+	left: 16px;
+	right: 16px;
+	text-align: center;
+}
+
+.pricing_table_main_cell .pricing_plans_upgrade_button .bluebutton,
+.addon_dialog_send_request_button .bluebutton{
+    white-space: normal;
+    height: auto;
+}
+
+.pricing_table_trial_cell .pricing_plans_upgrade_button
+{
+	text-align: left;
+	position: absolute;
+	bottom: 20px;
+}
+
+.pricing_plans_upgrade_new_quote
+{
+	position: absolute;
+	bottom: 5px;
+	text-align: center;
+	left: 16px;
+	right: 16px;
+	font-size: 12px;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.pricing_table_row .pricing_table_leftmost_cell
+{
+	background-color: #f1f5fa;
+	border-bottom: 1px solid #e0e5eb;
+	max-width: 360px;
+	flex: 0 0 360px;
+}
+
+.pricing_table_row .pricing_table_leftmost_cell_features
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.pricing_table_row:last-child .pricing_table_leftmost_cell
+{
+	border-bottom: 0 none;
+}
+
+.pricing_table_trial_cell
+{
+	background-color: #dee6f1;
+}
+
+.pricing_plan_icon
+{
+	margin-top: 12px;
+	text-align: center;
+}
+
+.pricing_plan_icon img
+{
+	width: 60px;
+	height: 60px;
+}
+
+.pricing_plan_name
+{
+	margin-top: 4px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.02rem;
+}
+
+.pricing_plan_price
+{
+	margin-top: 34px;
+	text-align: center;
+	color: #00a7f6;
+	font-size: 18px;
+	line-height: 16px;
+	font-weight: bold;
+	letter-spacing: -0.04rem;
+}
+
+.discounted_old_price
+{
+	position: absolute;
+	top: -16px;
+	left: 3px;
+	text-decoration: line-through;
+	font-size: 14px;
+}
+
+.pricing_plan_price_free_ad_supported
+{
+	margin-top: 8px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.pricing_plan_price_billed_annually,
+.pricing_plan_price_billed_monthly
+{
+	margin-top: 8px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 1;
+}
+
+.pricing_plans_row .pricing_table_cell
+{
+	height: 260px;
+	box-sizing: border-box;
+	padding: 0 8px;
+}
+
+#pricing_wrapper_public .pricing_plans_row .pricing_table_cell {
+	/*height: 200px;*/
+}
+
+.pricing_feature_row
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: auto;
+	align-items: stretch;
+	height: 100%;
+}
+
+.pricing_feature_row .pricing_table_cell
+{
+	padding: 0px 16px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+}
+
+.pricing_feature_row:nth-child(odd)
+{
+	background-color: #f8fafc; /* ! */
+}
+
+.pricing_table_row.pricing_feature_row_highlight .pricing_table_cell
+{
+	background-color: #fff9db !important;
+}
+
+.pricing_plan_price_monthly,
+.pricing_plan_price_annual,
+.pricing_plan_price_billed_annually,
+.pricing_plan_price_billed_monthly
+{
+	display: none;
+}
+
+.pricing_table_main_yearly .pricing_plan_price_annual,
+.pricing_table_main_yearly .pricing_plan_price_billed_annually,
+.pricing_table_main_monthly .pricing_plan_price_monthly,
+.pricing_table_main_monthly .pricing_plan_price_billed_monthly
+{
+	display: block;
+}
+
+.pricing_table_main_monthly .discount_perc_bubble
+{
+	display: none;
+}
+
+.pricing_plan_price_billed_annually_hard
+{
+	display: block;
+}
+
+.pricing_plan_badge
+{
+	position: absolute;
+	top: 4px;
+	left: 0;
+	right: 0;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.pricing_plan_badge_most_popular
+{
+	color: #ff6f00;
+}
+
+.pricing_plan_badge_current
+{
+	color: #00a7f6;
+}
+
+.pricing_table_main_shadow_cast_2 .pricing_table_cell_access_2:before,
+.pricing_table_main_shadow_cast_8 .pricing_table_cell_access_8:before,
+.pricing_table_main_shadow_cast_64 .pricing_table_cell_access_64:before,
+.pricing_table_main_shadow_cast_2 .pricing_table_cell_access_2:after,
+.pricing_table_main_shadow_cast_8 .pricing_table_cell_access_8:after,
+.pricing_table_main_shadow_cast_64 .pricing_table_cell_access_64:after
+{
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    z-index: 10;
+    content: " ";
+}
+
+.pricing_table_main_shadow_cast_2 .pricing_table_cell_access_2:before,
+.pricing_table_main_shadow_cast_8 .pricing_table_cell_access_8:before,
+.pricing_table_main_shadow_cast_64 .pricing_table_cell_access_64:before
+{
+	box-shadow: -9px 0 9px -5px #e1e1e1 inset;
+	left: -16px;
+}
+
+.pricing_table_main_shadow_cast_2 .pricing_table_cell_access_2:after,
+.pricing_table_main_shadow_cast_8 .pricing_table_cell_access_8:after,
+.pricing_table_main_shadow_cast_64 .pricing_table_cell_access_64:after
+{
+    box-shadow: 9px 0 9px -5px #e1e1e1 inset;
+    right: -16px;
+}
+
+.pricing_table_fixerupper_cell
+{
+	visibility: hidden;
+	position: relative;
+	border: 1px solid #e0e5eb;
+	z-index: 12;
+	top: 1px;
+	margin-right: -1px;
+	content: " ";
+	background: #FEFEFE;
+	height: 3px;
+}
+
+.pricing_table_fixerupper_cell:last-child
+{
+	border-top-right-radius: 3px;
+	border: 1px solid #e0e5eb;
+}
+
+.pricing_table_main.pricing_table_main_shadow_cast_64
+{
+	border-top-right-radius: 0;
+}
+
+.pricing_table_main_shadow_cast_2 .pricing_table_fixerupper_cell_2,
+.pricing_table_main_shadow_cast_8 .pricing_table_fixerupper_cell_8,
+.pricing_table_main_shadow_cast_64 .pricing_table_fixerupper_cell_64
+{
+	visibility: visible;
+}
+
+.pricing_table_main_shadow_cast_64 .pricing_table_cell_access_64,
+.pricing_table_main_shadow_cast_64 .pricing_table_fixerupper_cell_64
+{
+	background-color: #f5fbff;
+}
+
+.pricing_table_main_shadow_cast_64 .pricing_feature_row:nth-child(odd) .pricing_table_cell_access_64
+{
+	background-color: #ebf7ff;
+}
+
+.pricing_plan_period_switcher
+{
+	background-color: #294973;
+	color: #f6f6f8;
+	font-size: 10px;
+	font-weight: 600;
+	border-radius: 11px;
+	margin-top: 8px;
+	padding: 1px;
+	min-width: 50px;
+	display: inline-flex;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 16px;
+	box-sizing: border-box;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.pricing_plan_period_switcher_year,
+.pricing_plan_period_switcher_month
+{
+	padding: 2px 6px;
+	flex: 1 1 30px;
+}
+
+.pricing_plan_period_switcher_pill
+{
+	height: 14px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	line-height: 10px;
+	transition: background-color 0.2s ease;
+}
+
+.pricing_table_main_yearly .pricing_plan_period_switcher_year,
+.pricing_table_main_monthly .pricing_plan_period_switcher_month
+{
+	background-color: #00a7f6;
+	color: #FFFFFF;
+}
+
+.pricing_table_discount_menu
+{
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	width: 220px;
+	height: 200px;
+	padding: 16px;
+	box-sizing: border-box;
+	background-color: #FEFEFE;
+	box-shadow: 0 14px 20px rgba(0, 0, 0, 0.11);
+	z-index: 101;
+}
+
+.pricing_table_discount_menu_line
+{
+	margin-top: 20px;
+	height:2px;
+	background-color: #00a7f6;
+}
+
+.pricing_table_discount_menu_icon
+{
+	position: relative;
+	top:-15px;
+	text-align: center;
+}
+
+.pricing_table_discount_menu_icon .icon-gift
+{
+	font-size: 28px;
+	color: #00a7f6;
+}
+
+.pricing_table_discount_menu_lucky
+{
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.pricing_table_discount_menu_enter
+{
+	margin-top: 36px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.pricing_table_discount_menu_input
+{
+	margin-top: 8px;
+	text-align: center;
+	padding-left: 8px;
+	align-items: stretch;
+}
+
+input[type="text"].pricing_discount_input
+{
+	font-size: 12px;
+	border-radius: 3px 0 0 3px;
+	box-sizing: border-box;
+}
+
+button.pricing_discount_button
+{
+	box-sizing: border-box;
+	background-color: #00a7f6;
+	border: 1px solid #00a7f6;
+	color: #FFFFFF;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+button.pricing_discount_button_cancel
+{
+	box-sizing: border-box;
+	background-color: #e0e5eb;
+	border: 1px solid #e0e5eb;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.pricing_discounted_price
+{
+	font-size: 14px;
+	font-weight: 500;
+	position: relative;
+	margin-right: 4px;
+}
+
+.pricing_discounted_price:after{
+	content: '';
+	width: 100%;
+	height: 1px;
+	background: #828d9d;
+	position: absolute;
+	left: 0;
+	transform: rotate(10deg);
+	top: 50%;
+}
+
+.pricing_pro_discounted_price
+{
+	color: #FF714C;
+}
+
+.discount_perc_bubble
+{
+	background: #FF714C;
+	color: #fefefe;
+	font-size: 12px;
+	padding: 2px 3px;
+	border-radius: 3px;
+	letter-spacing: -0.02rem;
+	margin-left: 4px;
+}
+
+.pricing_feature_row_caption
+{
+	padding-right: 4px;
+	font-size: 14px;
+	flex: 1;
+}
+
+.pricing_feature_description_tip
+{
+	flex: 0;
+}
+
+.pricing_feature_description_tip .icon16
+{
+	color: #707D90;
+}
+
+.pricing_faq
+{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.pricing_faq_header
+{
+	font-size: 30px;
+	font-weight: bold;
+	margin: 24px 0;
+}
+
+.pricing_faq_q
+{
+	font-size: 16px;
+	font-weight: bold;
+	margin: 36px 0 6px 0;
+}
+
+.pricing_faq_a
+{
+	font-size: 15px;
+	line-height: 22px;
+}
+
+.pricing_teams_hero
+{
+	margin: 40px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-image: linear-gradient(-80deg, #f8fafc 0%, #e9eff7 80%);
+	border-radius: 5px;
+}
+
+.pricing_teams_hero_descr
+{
+	padding: 50px 36px;
+	width: 350px;
+}
+
+.pricing_teams_hero_title
+{
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 0.95;
+	letter-spacing: -0.7px;
+}
+
+.pricing_teams_hero_sub_title
+{
+	font-size: 20px;
+	margin-top: 24px;
+	letter-spacing: -0.2px;
+}
+
+.pricing_teams_hero_button
+{
+	margin-top: 24px;
+}
+
+.pricing_teams_hero_image img
+{
+	padding: 0 50px;
+}
+
+.pricing_teams_hero_image img
+{
+	width: 382px;
+	height: 224px;
+}
+
+span.icon16.newsletter_retention_icon
+{
+	position: absolute;
+	top: 13px;
+	right: 13px;
+	color: #707D90;
+}
+
+.pricing_feature_is_new
+{
+	padding: 0 8px 0 8px;
+}
+
+.pricing_feature_is_new .something_new
+{
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 3px 4px 2px 4px;
+	border-radius: 2px;
+	position: relative;
+	top: -2px;
+	margin: 0 3px 0 3px;
+	color: #ff6f00;
+	border: 0 none !important
+}
+
+.pricing_permonth
+{
+	font-size: 11px;
+	font-weight: normal;
+	letter-spacing: normal;
+}
+
+@media screen and (max-width: 769px) {
+
+	.pricing_table_row {
+		display: flex;
+		flex-wrap: wrap;
+		height: 100%;
+		position: sticky;
+	}
+
+	.pricing_plans_row .pricing_table_cell {
+		-webkit-box-orient: vertical!important;
+		-ms-flex-direction: column!important;
+		flex-direction: column!important;
+	}
+
+	.pricing_table_row .pricing_table_leftmost_cell {
+		max-width: 100%;
+		width: 100%;
+		flex: none;
+	}
+
+	.pricing_plans_row .pricing_table_cell {
+		height: auto;
+		padding: 0;
+	}
+
+	.pricing_feature_row .pricing_table_cell {
+		height: auto;
+		padding: 8px 4px;
+	}
+
+	.pricing_table_main_cell {
+		max-width: 25%;
+		width: 25%;
+	}
+
+	.pricing_plans_row .pricing_table_main_cell {
+		padding-bottom: 16px;
+		height: 240px;
+	}
+
+	.pricing_feature_row_caption {
+		padding: 8px 0px;
+		font-size: 16px;
+	}
+
+	.pricing_table_fixerupper_cell {
+		display: none;
+	}
+
+	.pricing_plan_badge {
+		font-size: 9px;
+		letter-spacing: 0.04rem;
+	}
+
+	.pricing_plan_price {
+		font-size: 16px;
+	}
+
+	.pricing_header {
+		text-align: center;
+	}
+
+	.pricing_plans_row .pricing_table_cell.pricing_table_trial_cell {
+		padding: 16px;
+	}
+
+	#pricing_wrapper_public .pricing_plans_row .pricing_table_cell.pricing_table_trial_cell {
+		display: none;
+	}
+
+	#pricing_wrapper_public .pricing_plans_row .pricing_table_cell {
+		height: 240px;
+	}
+
+	.pricing_table_main_cell .pricing_plans_upgrade_button {
+		left: auto;
+		right: auto;
+		width: 100%;
+		bottom: 8px;
+	}
+
+	.bluebutton, .bluebutton:hover, .bluebutton:disabled, .bluebutton:active {
+		white-space: normal;
+		height: auto;
+	}
+
+	.pricing_table_main_shadow_cast_64 .pricing_table_cell_access_64:after
+	{
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 500px) {
+	#pricing_wrapper_public .pricing_plans_row .pricing_table_cell
+	{
+		height: 250px;
+
+	}
+}
+
+@media screen and (max-width: 420px) {
+
+	.pricing_plan_name
+	{
+		overflow:hidden;
+		text-overflow: ellipsis;
+		font-size: 10px;
+	}
+	#pricing_wrapper_public .pricing_plans_row .pricing_table_cell
+	{
+		height: 270px;
+
+	}
+
+	.pricing_plan_badge_most_popular
+	{
+		display: none;
+	}
+
+	.pricing_plans_upgrade_button .bluebutton, .pricing_plans_upgrade_button .bluebutton:hover, .pricing_plans_upgrade_button .bluebutton:disabled, .pricing_plans_upgrade_button .bluebutton:active
+	{
+		padding: 0;
+	}
+	.pricing_plans_upgrade_button .greenbutton, .pricing_plans_upgrade_button .greenbutton:hover, .pricing_plans_upgrade_button .greenbutton:active, .pricing_plans_upgrade_button .greenbutton:focus, .pricing_plans_upgrade_button .greenbutton:disabled, .pricing_plans_upgrade_button .inno_dialog_buttonbar_button.greenbutton, .pricing_plans_upgrade_button .inno_dialog_buttonbar_button.greenbutton:hover, .pricing_plans_upgrade_button .inno_dialog_buttonbar_button.greenbutton:active, .pricing_plans_upgrade_button .inno_dialog_buttonbar_button.greenbutton:focus, .pricing_plans_upgrade_button .inno_dialog_buttonbar_button.greenbutton:disabled
+	{
+		background: none;
+		border: 0 none;
+		color: #50c0ad;
+		text-decoration: underline;
+	}
+
+	.pricing_plan_period_switcher
+	{
+		overflow: hidden;
+		width: 100%;
+		text-overflow: ellipsis;
+	}
+
+	.pricing_plan_period_switcher_pill
+	{
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.pricing_permonth
+	{
+		display: block;
+	}
+}
+
+/* Promo Banners */
+
+#pricing_promo_banner #bf_offer_modal
+{
+	margin-bottom: 36px;
+}
+
+#pricing_promo_banner_inner
+{
+	flex: 0 0 35%;
+}
+
+#pricing_promo_banner .bf_offer_text_wrapper
+{
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px 5px 0 0;
+	background-repeat: no-repeat;
+	position: relative;
+	text-align: left;
+	padding: 50px 80px;
+	justify-content: start;
+	height: auto;
+	background-size: 470px;
+	background-position: right 35%;
+}
+
+#pricing_promo_banner .bf_offer_close_btn_bgr
+{
+	display: none;
+}
+
+#pricing_promo_banner .bf_offer_text_wrapper h2
+{
+	margin: 20px 0 30px 0;
+	line-height: 2rem;
+	text-align: left;
+	font-size: 28px;
+	max-width: 340px;
+}
+
+#bf_offer_modal h2 .special_prices_wrapper strike
+{
+	/*top: 3px;*/
+	font-size: 22px;
+	/*white-space: nowrap;*/
+}
+
+#pricing_promo_banner #bf_offer_modal h2 .special_prices_wrapper strike
+{
+	position: relative;
+	margin: 0 4px;
+	top: auto;
+	opacity: 0.7;
+	white-space: nowrap;
+}
+
+.bf_offer_subheading
+{
+	padding-bottom: 8px;
+	font-size: 12px;
+	margin: 0 auto;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.special_prices_wrapper strike
+{
+	margin-left: 4px;
+	letter-spacing: -0.08rem;
+}
+
+#pricing_promo_banner .special_offer_heading_wrapper
+{
+	padding: 20px 30px 0px 30px;
+	margin: -20px -30px 0px -30px;
+}
+
+#pricing_promo_banner .bf_offer_subheading,
+#pricing_promo_banner #bf_offer_modal #countdown_dialog
+{
+	text-align: left;
+	justify-content: start;
+	margin: 0;
+}
+
+#pricing_promo_banner #bf_offer_modal #countdown_dialog span
+{
+	margin: 0px 8px 0 0;
+	padding: 0;
+}
+
+#pricing_promo_banner .bf_offer_subheading
+{
+	text-align: left;
+	margin: 0;
+}
+
+#pricing_promo_banner .promo_arrow svg {
+	margin-left: 10px;
+	margin-top: 56px;
+}
+
+.special_offer_heading_wrapper
+{
+	font-weight: bold;
+}
+
+.bf_offer_disclaimer {
+	font-size: 11px;
+	font-style: italic;
+	padding: 16px 0;
+	background: #fefefe;
+}
+
+#promo_dialog_wrapper .bf_offer_disclaimer
+{
+	padding: 16px;
+}
+
+#special_offer_not_interested
+{
+	display: none;
+}
+
+.special_offer_text_color_white, .special_offer_text_color_white.icon16, #tree_announce .tree_announce_inner.special_offer_text_color_white, .bf_offer_text_wrapper.special_offer_text_color_white {
+	color: #fefefe;
+}
+
+.bf_offer_slogan {
+	font-size: 10px;
+	margin: 0;
+	line-height: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04rem;
+}
+
+.kickstart_offer
+{
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 40px;
+	border-radius: 5px;
+	margin-bottom: 36px;
+	text-align: left;
+	background-image: url(../images/upgrade-intro-offer-bgr-blue.png);
+}
+
+.kickstart_offer_label
+{
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #4FC0AD;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+.kickstart_offer_heading
+{
+	font-size: 32px;
+	letter-spacing: -0.6px;
+	font-weight: bold;
+	color: #fefefe;
+	max-width: 360px;
+	line-height: 32px;
+	margin: 10px 0;
+}
+
+.kickstart_offer_subtext
+{
+	font-size: 16px;
+	opacity: 0.8;
+	color: #fefefe;
+	margin-bottom: 16px;
+}
+
+.kickstart_offer .greenbutton
+{
+	display: inline-block;
+	line-height: 24px;
+	height: 42px;
+	min-width: 120px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+
+.kickstart_offer.intro_offer_30
+{
+	margin-top: 32px;
+	padding: 40px 60px;
+	border-radius: 10px;
+	margin-bottom: 48px;
+	display: flex;
+	justify-content: space-between;
+	text-align: left;
+	position: relative;
+	flex-wrap: wrap;
+	font-family: sans-serif;
+	background-position: 90%;
+}
+
+.intro_offer_30 .kickstart_offer_heading
+{
+	font-size: 24px;
+	font-weight: bold;
+	color: #fefefe;
+	max-width: none;
+	line-height: 36px;
+	margin: 0;
+	letter-spacing: 0;
+}
+
+.intro_offer_30.kickstart_offer .greenbutton
+{
+	display: inline-block;
+	line-height: 44px;
+	height: 44px;
+	padding: 0 24px;
+	box-sizing: border-box;
+	text-align: center;
+	background: #FFBD25;
+	border-color: #FFBD25;
+	color: #081425;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/*.special_discounted_price
+{
+	white-space: nowrap;
+}*/
+
+@media screen and (max-width: 1200px) {
+	#pricing_promo_banner .bf_offer_text_wrapper
+	{
+	}
+}
+
+@media screen and (max-width: 1000px) {
+
+
+	#pricing_promo_banner .bf_offer_text_wrapper
+	{
+		background-size: 360px;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper h2
+	{
+		line-height: 1.8rem;
+		font-size: 26px;
+		margin: 10px 0 20px 0;
+	}
+}
+
+@media screen and (max-width: 940px) {
+
+
+	#pricing_promo_banner .bf_offer_text_wrapper
+	{
+		background-size: 360px;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper h2
+	{
+		line-height: 1.8rem;
+		font-size: 26px;
+		margin: 10px 0 20px 0;
+	}
+}
+
+
+
+@media screen and (max-width: 769px) {
+
+	#pricing_promo_banner #bf_offer_modal .bf_offer_disclaimer
+	{
+		padding: 16px;
+	}
+
+	#pricing_promo_banner h1
+	{
+		margin: 8px auto 36px auto;
+	}
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		width: 80%;
+		margin-right: 25%;
+	}
+
+}
+
+@media screen and (max-width: 760px) {
+
+	#pricing_promo_banner .bf_offer_text_wrapper
+	{
+		background-size: 320px;
+		padding-left: 360px;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper h2
+	{
+		line-height: 1.5rem;
+		font-size: 19px;
+	}
+}
+
+@media screen and (max-width: 620px) {
+
+	#pricing_promo_banner .bf_offer_text_wrapper
+	{
+		background-size: 360px;
+		padding-left: 30px;
+		padding-top: 230px;
+		background-position: center -60px;
+		text-align: center;
+		width: calc(100% - 60px);
+		margin: 0 auto;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper h2
+	{
+		line-height: 1.8rem;
+		font-size: 22px;
+	}
+
+	#pricing_promo_banner .bf_offer_subheading,
+	#pricing_promo_banner .bf_offer_subheading
+	{
+		text-align: center;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper h2
+	{
+		text-align: center;
+		margin: 10px auto 30px auto;
+	}
+
+	.special_discounted_price
+	{
+		font-size: 26px;
+	}
+
+	#pricing_promo_banner .bf_offer_subheading, #pricing_promo_banner #bf_offer_modal #countdown_dialog
+	{
+		text-align: center;
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 360px) {
+
+	#pricing_wrapper_public #pricing_promo_banner .bf_offer_text_wrapper
+	{
+		padding: 160px 0 30px 0;
+		background-position: center -30px;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper h2,
+	.special_discounted_price
+	{
+		font-size: 20px;
+	}
+
+	#bf_offer_modal h2 .special_prices_wrapper strike
+	{
+		font-size: 15px;
+	}
+
+	#pricing_promo_banner .bf_offer_text_wrapper
+	{
+		background-size: 90%;
+		padding-top: 160px;
+	}
+
+	.discount_perc_bubble
+	{
+		font-size: 10px;
+	}
+}
+
+
+@media screen and (max-width: 1120px) {
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: 110px;
+	}
+
+}
+
+@media screen and (max-width: 1080px) {
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: 60px;
+	}
+
+}
+@media screen and (max-width: 1050px) {
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: 50px;
+	}
+
+}
+
+@media screen and (max-width: 1020px) {
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: 40px;
+	}
+
+}
+
+@media screen and (max-width: 1000px) {
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: 30px;
+	}
+
+}
+
+@media screen and (max-width: 960px) {
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: 0px;
+		width: 90%;
+	}
+
+}
+
+
+@media screen and (max-width: 892px) {
+
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: -10px;
+		margin-top: 36px;
+	}
+}
+
+@media screen and (max-width: 860px) {
+
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: -20px;
+		margin-top: 36px;
+	}
+}
+
+
+@media screen and (max-width: 820px) {
+
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: -20px;
+		margin-top: 36px;
+	}
+}
+
+@media screen and (max-width: 810px) {
+
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: -30px;
+		margin-top: 36px;
+	}
+}
+
+
+@media screen and (max-width: 790px) {
+
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-left: -40px;
+		margin-top: 6px;
+	}
+}
+
+
+@media screen and (max-width: 620px) {
+
+
+	#pricing_promo_banner .promo_arrow svg
+	{
+		margin-right: 28%;
+	}
+}

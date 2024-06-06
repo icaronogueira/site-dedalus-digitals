@@ -1,0 +1,268 @@
+/**
+ * jQuery plugin topics_progress bar
+ */
+(function($) {
+    $.fn.topics_progress_bar = function(customOptions) {
+        var scope = function($this, customOptions) {
+            /**
+             * Private properties for internal use
+             * @private
+             */
+            var _conditions_to_display = null;
+            var _conditions_to_hide = null;
+
+            /**
+             * The default, and after initialization, runtime options.
+             * override in constructor (object init)
+             */
+            // var options = {};
+            /**
+             * Public functionality.
+             */
+            this.show_bar = function(position_on_topic, target) {
+                f._internalFunctions.update_conditions();
+                if(_conditions_to_display) {
+                    var total_topics = parseInt($('#reader_pane').attr('data-topicall'));
+                    position_on_topic = parseInt(position_on_topic);
+                    if (total_topics > 0 && position_on_topic <= total_topics) {
+                        f._internalFunctions.topics_progressbar(total_topics, position_on_topic, target);
+                    }
+                }
+            };
+
+            this.build_bar = function() {                
+                f._internalFunctions.update_conditions();
+                if(_conditions_to_display){
+                    setTimeout(function(){
+                        var unr = f._internalFunctions.get_unread_counts();
+                        if(unr > 0){
+                            f._internalFunctions.topics_progressbar(unr);
+                        }else{
+                            $('#topic_progress_wrapper').remove();
+                        }
+                    },10);
+                }else{
+                    $('#topic_progress_wrapper').remove();
+                }
+            };
+
+            this.remove_rebuild_bar = function(position_on_topic, target) {
+                $('#topic_progress_wrapper').remove();
+                f._internalFunctions.update_conditions();
+                if(_conditions_to_display){
+                    var total_topics = $('#reader_pane').attr('data-topicall');
+                    position_on_topic = parseInt(position_on_topic);
+                    if(total_topics > 0 && position_on_topic <= total_topics){
+                        f._internalFunctions.topics_progressbar(total_topics, position_on_topic, target);
+                    }
+                }
+            };
+
+            this.remove_bar = function() {
+                $('#topic_progress_wrapper').remove();
+            };
+
+            this.remove_bar_clean_topicall = function() {
+                $('#topic_progress_wrapper').remove();
+                $('#reader_pane').removeAttr('data-topicall');
+            };
+
+            var f = {
+                /**
+                 * The "constructor"
+                 */
+                init: function (customOptions) {
+                    // Merge the default options with the given custom options.
+                    //$.extend(options, customOptions);
+
+                    $(document).on('toggled_pane_footer', f.actions.build_bar_footer);
+
+                    $(document).on('theme_switched', f.actions.build_bar_unread);
+
+                    $(document).on('read_multiple_articles_clicked', f.actions.build_bar_readmulti);
+                },
+
+
+                actions: {
+                    build_bar_footer: function(event){
+                        var show_footer = event.show_footer;
+                        f._internalFunctions.update_conditions();
+                        if(show_footer && _conditions_to_display){
+                            var unr = f._internalFunctions.get_unread_counts();
+                            if(unr > 0) {
+                                f._internalFunctions.topics_progressbar(unr);
+                            }
+                        }else{
+                            $('#topic_progress_wrapper').remove();
+                        }
+                    },
+
+                    build_bar_unread: function(){
+                        f._internalFunctions.update_conditions();
+                        if(_conditions_to_display){
+                            var unr = f._internalFunctions.get_unread_counts();
+                            if(unr > 0) {
+                                f._internalFunctions.topics_progressbar(unr);
+                            }
+                        }else{
+                            $('#topic_progress_wrapper').remove();
+                        }
+                    },
+
+                    build_bar_readmulti: function(event){
+                        var read_type = event.read_type;
+                        f._internalFunctions.update_conditions();
+                        if(read_type == 1){
+                            $('#topic_progress_wrapper').remove();
+                            $('#reader_pane').removeAttr('data-topicall');
+                        }else if(_conditions_to_display){
+                            var unr = f._internalFunctions.get_unread_counts();
+                            if(unr > 0) {
+                                f._internalFunctions.topics_progressbar(unr);
+                            }
+                        }
+                    }
+                },
+
+                _internalFunctions: {
+                    topics_progressbar : function(total_topics, position_on_topic, target){
+                        if(_conditions_to_hide){
+                            return;
+                        }
+                        if(total_topics == null || typeof total_topics == "undefined"){
+                            return;
+                        }
+
+                        var first_list_pos = false;
+
+                        if(!position_on_topic || position_on_topic == null || typeof position_on_topic == "undefined"){
+                            position_on_topic = 1;
+                        }else if(position_on_topic == 1 && feed_params.view_style == 0){
+                            first_list_pos = true;
+                        }
+
+                        var target_str = target;
+                        if(!target || target == null || typeof target == "undefined"){
+                            target_str = '#fo_control_buttons';
+                            target = $('#fo_control_buttons');
+                        }else{
+                            target = $(target);
+                        }
+
+                        var topic_wrapper_width = 145;
+
+                        if(feed_params.view_style == 0 && !first_list_pos){ // If this is a "List view" and no one article expanded -> position progress on 0px
+                            var progress_width = "0px";
+                        }else{
+                            if(target_str == '#article_dialog_modal_overlay'){
+                                var progress_width = ((position_on_topic/total_topics)*100) + "%;";
+                            }else{
+                                var progress_width = (position_on_topic*topic_wrapper_width)/total_topics + "px;";
+                            }
+                        }
+                        $('#reader_pane').attr('data-topicall', total_topics);
+                        if($(target_str + ' #topic_progress_wrapper').length){
+                            $('#topic_progress_wrapper .nums').attr('style', 'width:'+progress_width);
+                            $('#topic_progress_wrapper span.topic_all').text(total_topics);
+                            $('#topic_progress_wrapper span.topic_current_top').text(position_on_topic);
+                        }else{
+                            var bottom = '0';
+                            var pos_indent = "left:3px;";
+                            var topic_extra_class = '';
+                            if(target_str != '#fo_control_buttons'){
+                                bottom = 'auto';
+                                pos_indent = 'left:0;right:0;bottom:0;top:auto;';
+                                topic_extra_class = ' class="tpw_full_width"';
+                            }else{
+                                if(direction == 'rtl'){
+                                    pos_indent = 'right:3px;';
+                                }
+                            }
+
+                            var topic_div = $('<div id="topic_progress_wrapper"' + topic_extra_class + ' style="bottom:'+ bottom +';'+pos_indent+'">' +
+                                '<div id="topic_progress">' +
+                                    '<div class="bg">'+'<span id="topic_current_top" class="topic_current_top">' + position_on_topic + '</span> / <span class="topic_all">'+ total_topics + '</span>'+'</div>' +
+                                    '<div style="width: '+progress_width+'" class="nums">' +
+                                        '<div class="fore"><span id="topic_current_top_inner" class="topic_current_top">' + position_on_topic + '</span> / <span class="topic_all">'+ total_topics + '</span></div>' +
+                                    '</div>' +
+                                '</div>' +
+                                '</div>');
+                            target.prepend(topic_div);
+                        }
+                    },
+
+                    get_unread_counts : function(){
+                        if(max_unread == 0){
+                            return;
+                        }
+                        var unread_cnt = 0;
+                        if(feed_params.filter_type == 'subscription'){
+                            if(subscriptions_cnt['1_' + feed_params.filter_id]){
+                                unread_cnt = parseInt(subscriptions_cnt['1_' + feed_params.filter_id].cnt);
+                            }
+                        }else if(feed_params.filter_type == 'folder'){
+                            if(subscriptions_cnt['0_' + feed_params.filter_id]){
+                                unread_cnt = parseInt(subscriptions_cnt['0_' + feed_params.filter_id].cnt);
+                            }
+                        }else if(feed_params.filter_type == 'all_items' || !feed_params.filter_type){
+                            unread_cnt = parseInt(totals_cnt[0]);
+                        }else if(feed_params.filter_type == 'tags'){
+                            if($('#unread_cnt_tags').html() != ''){
+                                unread_cnt = parseInt($('#unread_cnt_tags').html());
+                            }
+                        }else if(feed_params.filter_type == 'active_searches'){
+                            if($('#unread_cnt_active_searches').html() != ''){
+                                unread_cnt = parseInt($('#unread_cnt_active_searches').html());
+                            }
+                        }else if(feed_params.filter_type == 'starred'){
+                            unread_cnt = 0;
+                        }else if(feed_params.filter_type == 'my_channel'){
+                            unread_cnt = parseInt(totals_cnt[2]);
+                        }else if(feed_params.filter_type == 'channel'){
+                            if(!$('#unread_cnt_channel').html()){
+                                unread_cnt = 0;
+                            }else{
+                                unread_cnt = parseInt($('#unread_cnt_channel').html());
+                            }
+                        }
+
+                        if(unread_cnt < 0){
+                            unread_cnt = 0;
+                        }
+                        var unread_cnt_sanit = (unread_cnt > max_unread) ? max_unread : unread_cnt;
+
+                        if(unread_cnt_sanit >= max_unread){
+                            return;
+                        }
+                        return unread_cnt_sanit;
+                    },
+
+                    update_conditions : function(){
+                        if(feed_params.view_unread == undefined){
+                            feed_params.view_unread = 0;
+                        }
+                        _conditions_to_display = article_progressbar === 1 && feed_params.view_unread == 0 && $('#footer').is(':visible');
+                        _conditions_to_hide = (feed_params.filter_type == 'channel' ||
+                                                feed_params.filter_type == 'tags' ||
+                                                (last_toolbar_params.is_tag !== false && feed_params.filter_type == 'folder') ||
+                                                feed_params.filter_type == 'active_searches' ||
+                                                (feed_params.filter_type == 'subscription' && last_toolbar_params.remote_user_id > 0));
+                    }
+                }
+            };	// close "f"
+
+            f.init(customOptions);
+        };
+
+        return this.each(function () {
+            var element = $(this);
+
+            if(element.data('topics_progress_bar')) return;
+
+            var progress_bar = new scope($(this), customOptions);
+
+            element.data('topics_progress_bar', progress_bar);
+        });
+
+    };
+}(jQuery));

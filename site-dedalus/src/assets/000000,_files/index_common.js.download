@@ -1,0 +1,358 @@
+var facebook_network_id = 1;
+var twitter_network_id = 2;
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length,c.length));
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
+
+function createCookie(name,value,days) {
+    if(!days){
+        days = 31;
+    }
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+    //else var expires = "";
+    document.cookie = name+"="+encodeURIComponent(value)+expires+"; path=/;SameSite=Lax";
+}
+
+if (!Date.now) {
+    Date.now = function() { return new Date().getTime(); }
+}
+
+function unix_timestamp(){
+    return Math.floor(Date.now() / 1000);
+}
+
+function update_window_dimensions_cookie(){
+    var w = window,
+        d = document,
+        e = d.documentElement ? d.documentElement : {},
+        g = d.getElementsByTagName('body')[0] ? d.documentElement : {},
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    createCookie('window_dimensions',x + 'x' + y,999);
+}
+
+function connect_service(service,params){
+    if(typeof window.do_loading === 'function'){ 
+        do_loading();
+    }
+
+    try{
+        if(document.getElementById('subscribe_intent_reg').value != ''){
+            createCookie('subscribe_intent',document.getElementById('subscribe_intent_reg').value,1);
+        }else if(document.getElementById('subscribe_intent_login').value != ''){
+            createCookie('subscribe_intent',document.getElementById('subscribe_intent_login').value,1);
+        }
+    }catch(e){}
+
+    if(service == 4){
+        if(!params || !params.client_id) {
+            return xajax_connect_gdrive();
+        }
+        var url = 'https://accounts.google.com/o/oauth2/auth';
+        url += '?response_type=code';
+        url += '&client_id=' + params.client_id;
+        url += '&access_type=offline';
+        url += '&disallow_webview=true';
+        url += '&scope=https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
+
+        // url += ' https://www.googleapis.com/auth/adsense https://www.googleapis.com/auth/adsense.readonly'; // AdSense 
+
+        if(params.get_book){
+            url += ' https://www.google.com/m8/feeds';
+        }
+
+        if(params.plus){
+            url += ' https://www.googleapis.com/auth/plus.login';
+        }
+
+        if(params.youtube){
+            url += ' https://www.googleapis.com/auth/youtube.readonly';
+        }
+
+        if(params.extra_scopes){
+            url += ' ' + params.extra_scopes;
+        }
+
+        // https://developers.google.com/identity/protocols/oauth2/resources/granular-permissions
+        url += '&enable_granular_consent=true';
+        url += redirect_uri_google;
+    }else if(service == facebook_network_id){
+        if(!params || !params.app_id){
+            do_loading();
+            xajax_connect_service(service, params);
+            return;
+        }
+        var url = 'https://www.facebook.com/dialog/oauth';
+        url += '?client_id=' + params.app_id;
+        url += '&scope=email';
+        url += '&state=' + params.state;
+        url += redirect_uri_facebook;
+        if(params.window) {
+            stop_loading();
+            var fbWindow = open_centered_popup(url, 600, 400);
+            var timer = setInterval(function() {
+                if(fbWindow.closed) {
+                    fbWindow = null;
+                    clearInterval(timer);
+                    if(params.dialog) {
+                        dialog(params.dialog, params.dialog_params)
+                    }
+                }
+            }, 1000);
+            return false;
+
+        }
+    }else if(service == twitter_network_id && params && params.window) { //Twitter
+        // console.log('twitter window mode', params)
+        if(!params.url) {
+            do_loading();
+            xajax_connect_service(service, params);
+            return;
+        } else {
+            stop_loading();
+            var twitterWindow = open_centered_popup(params.oauth_url, 600, 400);
+            var timer = setInterval(function() {
+                if(twitterWindow.closed) {
+                    twitterWindow = null;
+                    clearInterval(timer);
+                    if(params.dialog) {
+                        dialog(params.dialog, params.dialog_params)
+                    }
+                }
+            }, 1000);
+            return false;
+        }
+    }else if(service == 48){ //Slack
+        if(!params) {
+            return xajax_connect_service(service);
+        }
+        url = build_url('https://slack.com/oauth/v2/authorize', params);
+        stop_loading();
+        var slackWindow = open_centered_popup(url, 600, 800);
+        var timer = setInterval(function() {
+            if(slackWindow.closed) {
+                slackWindow = null;
+                clearInterval(timer);
+                $.get('/api/slack/get_status.php').done(function(data) {
+                    console.log('slack', data);
+                    if(data.ok === true){
+                        $('#team_slack_workspace_name').val(data.team.name);
+                        $('#team_slack_channel_name').val(data.incoming_webhook.channel);
+                        $('#team_slack_webhook_url').val(data.incoming_webhook.url);
+                    }else{
+                        $('#team_integration_checkbox_slack').prop('checked', false);
+                    }
+                    check_team_integration_visibility('slack');
+                })
+            }
+        }, 1000);
+        return false;
+    }else if(service == 43){
+        if(!params){
+            do_loading();
+            xajax_connect_service(service);
+            return;
+        }
+        var url = 'https://appleid.apple.com/auth/authorize';
+        url += '?response_type=code';
+        url += '&response_mode=form_post';
+        url += '&client_id=' + params.client_id;
+        url += '&scope=name%20email';
+        url += '&state=' + params.state; 
+        url += redirect_uri_apple;
+    }else{
+        xajax_connect_service(service,params);
+        return;
+    }
+
+    window.location.href = url;
+}
+
+function recaptcha_callback(){
+    // grecaptcha.render('register_captcha', {sitekey: grecaptcha_site_key});
+}
+
+function create_dom_element(type,params){
+    var el = document.createElement(type);
+    for(var i in params){
+        if(typeof params[i] == 'object'){
+            for(var c in params[i]){
+                el[i][c] = params[i][c];
+            }
+        }else{
+            el[i] = params[i];
+        }
+    }
+    return el;
+}
+
+var promo_countdown_timer = null;
+function activate_promo_countdown(timestamp){
+    update_promo_countdown(timestamp);
+    promo_countdown_timer = setInterval(function() {
+        update_promo_countdown(timestamp);
+    }, 1000,timestamp);
+}
+
+function update_promo_countdown(timestamp){
+    if(!timestamp){
+        return;
+    }
+    var now = new Date().getTime();
+    var distance = timestamp - now;
+    if (distance < 0) {
+        return;
+    }
+
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    var countdown_string = '';
+    var countdown_string2 = '';
+    var countdown_urgent = false;
+    if(days == 1){
+        if(countdown_urgent){
+            countdown_string += "<span class=\"feed_health ill\">" + days + " DAY</span>";
+        }
+        else{
+            countdown_string += "<span>" + days + " DAY</span>";
+        }
+        countdown_string2 += "<span class=\"\">" + days + " DAY</span>";
+    }else if(days > 1){
+        if(countdown_urgent) {
+            countdown_string += "<span class=\"feed_health ill\">" + days + " DAYS</span>";
+        }
+        else {
+            countdown_string += "<span>" + days + " DAYS</span>";
+        }
+        countdown_string2 += "<span class=\"\">" + days + " DAYS</span>";
+    }
+    if(countdown_urgent) {
+        countdown_string += "<span class=\"feed_health ill\">" + hours + " HRS</span>" + "<span class=\"feed_health ill\">" + minutes + " MIN</span>" + "<span class=\"feed_health ill\">" + seconds + " SEC</span>";
+    }
+    else{
+        countdown_string += "<span>" + hours + " HRS</span>" + "<span>" + minutes + " MIN</span>" + "<span>" + seconds + " SEC</span>";
+    }
+    countdown_string2 += "<span class=\"\">" + hours + " HR</span>" + "<span class=\"\">" + minutes + " MIN</span>" + "<span class=\"\">" + seconds + " SEC</span>";
+
+    var counter_updated = false;
+    if(document.getElementById("countdown")){
+        document.getElementById("countdown").innerHTML = countdown_string;
+        counter_updated = true;
+    }
+
+    if(document.getElementById("countdown_dialog")){
+        document.getElementById("countdown_dialog").innerHTML = countdown_string;
+        counter_updated = true;
+    }
+
+    if(document.getElementById("countdown_payment")){
+        document.getElementById("countdown_payment").innerHTML = countdown_string2;
+        counter_updated = true;
+    }
+
+    if(counter_updated == false){
+        clearInterval(promo_countdown_timer);
+    }
+}
+
+var last_promo_data = null;
+function activate_promo_elements(data,force_dialog) {
+    last_promo_data = data;
+    var html = '<div id="bf_offer_modal" style="background-color:' + data.background_color + ';">' +
+        '<a href="javascript:void(0);" onclick="dialog(\'upgrade_dialog\', {access: 8, promo_code: \'' + data.code + '\'});log_ga_event(\'Promo popup\', \'Special offer clicked\');">' +
+        '<div style="height:100%;">' +
+        '<div class="bf_offer_text_wrapper ' + data.extra_class + '" style="background-image: url(' + data.background_image + ')">' +
+        '<div class="special_offer_heading_wrapper ' + data.topline_extra_class + '"><p class="bf_offer_subheading">' + data.topline_text + '</p>' +
+        '<div class="bf_offer_slogan ' + data.topline_extra_class + '"><p id="countdown_dialog"></p></div></div>' +
+        '<div class="special_offer_heading_value">' + data.value_proposition +
+        '<button class="bluebutton greenbutton">' + data.button_text + '</button>' +
+        '</div>' +
+        '</div>' +
+        '<div class="bf_offer_disclaimer graylink">' + data.disclaimer_text + '</div></div>' +
+        '<span class="bf_offer_close_btn_bgr"></span>' +
+        '</a>' +
+        '</div>' + 
+        '<div id="special_offer_not_interested">' +
+        '<a class="whitelink underlink_hover" href="javascript:void(0);" onclick="inno_dialog_close(\'promo_dialog\');log_ga_event(\'Promo popup\', \'Special offer skipped\');">Skip offer</a>' +
+        '</div>';
+
+    if(document.getElementById('pricing_promo_banner')){
+        document.getElementById('pricing_promo_banner').innerHTML = html;        
+    }else{
+        if(typeof(dialog) === 'function'){
+            if((force_dialog != 2 && !readCookie('consents_promo_dialog') && !user_access[parseInt(data.popup_max_access)] && document.location.href.indexOf('/pricing') === -1 && document.location.href.indexOf('/upgrade') === -1) || force_dialog == 1){
+                dialog('promo_dialog', {content: html});
+                log_ga_event('Promo popup', 'Promo popup initialized');
+            }else{
+                if(typeof(activate_promo_sidebar_banner) === 'function'){
+                    activate_promo_sidebar_banner(data);
+                }
+            }
+        }
+    }
+
+    if(data.counter_timestamp){
+        activate_promo_countdown(data.counter_timestamp * 1000);
+    }
+}
+
+function check_last_promo(){
+    if(last_promo_data){
+        activate_promo_elements(last_promo_data);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', function(event){
+    // Retina detect
+    var screen_pixel_ratio = readCookie('screen_pixel_ratio');
+    if(screen_pixel_ratio === null){
+        screen_pixel_ratio = window.devicePixelRatio;
+        createCookie('screen_pixel_ratio',screen_pixel_ratio,999);
+    }
+    // Screen resolution
+    var screen_resolution = screen.width + 'x' + screen.height;
+    createCookie('screen_resolution',screen_resolution,999);
+    createCookie('device_type',device_type,999);
+
+    var client_os = readCookie('client_os');
+    if(client_os === null){
+        if (navigator.appVersion.indexOf('Win') != -1){
+            client_os = 'Windows';
+        } else if (navigator.appVersion.indexOf('Mac') != -1) {
+            client_os = 'MacOS';
+        }else if (navigator.appVersion.indexOf('X11') != -1) {
+            client_os = 'UNIX';
+        }else if (navigator.appVersion.indexOf('Linux') != -1) {
+            client_os = 'Linux';
+        }
+        
+        createCookie('client_os',client_os,999);
+    }
+
+    update_window_dimensions_cookie();
+});
+
+if(typeof ga === 'undefined'){
+    function ga(){
+        return false;
+    }
+}

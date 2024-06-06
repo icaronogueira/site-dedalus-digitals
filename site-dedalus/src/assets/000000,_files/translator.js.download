@@ -1,0 +1,244 @@
+
+var bing_originals = {};
+var is_translating = false;
+
+function translate_article(article_id, from_lang, understood){
+    if(is_translating){
+        return false;
+    }
+
+    if($('#article_contents_inner_' + article_id).hasClass('embeded_article')){
+        embed_article(article_id);
+    }
+
+    if($('#article_' + article_id).data('translated') == 1){
+        back_to_origin_lang(article_id);
+        return;
+    }else{
+        $('#article_full_contents_' + article_id).find('.translation-container').html(_js('Translating...'));
+        $('#article_contents_inner_' + article_id).addClass('translated');
+        $('#article_footer_' + article_id + ' .icon-article_topbar_translate_article').addClass('active');
+        $('#enclosures_tbl_' + article_id).remove();
+    }
+
+    if(!from_lang){
+        from_lang = null;
+
+        var t = $('#article_title_link_' + article_id).html();
+        var a = $('#article_contents_inner_' + article_id).html();
+
+        bing_originals[article_id] = {};
+        bing_originals[article_id]['t'] = t;
+        bing_originals[article_id]['a'] = a;
+        bing_originals[article_id]['d'] = $('#article_contents_inner_' + article_id).attr('dir');
+    }else{
+        t = bing_originals[article_id]['t'];
+        a = bing_originals[article_id]['a'];
+    }
+    $('#article_full_contents_' + article_id).find('.icon-article_topbar_translate_article').addClass('loading blue-circle');
+    is_translating = true;
+    xajax_translate_article(article_id, t, a, from_lang, understood);
+}
+
+function translate_callback(article_id, lang_list, title_html, content_html, to_lang, is_rtl){
+    is_translating = false;
+    bing_originals[article_id]['to_lang'] = to_lang;
+    ino.checkLangChange();
+
+    if(is_rtl){
+        $('#article_' + article_id).find('div[dir="ltr"]').prop('dir','rtl');
+    }else{
+        $('#article_' + article_id).find('div[dir="rtl"]').prop('dir','ltr');
+    }
+
+    $('#translate_tippy').remove();
+    $('#mobilize_tippy').remove();
+    $('#article_' + article_id).data('translated',1);
+    $('#article_full_contents_' + article_id).addClass('show-translator');
+    $('#article_full_contents_' + article_id).find('.icon-article_topbar_translate_article').removeClass('loading');
+    $('#article_contents_inner_' + article_id).addClass('translated');
+
+    // Build translation container
+    add_to_translation_container('select_success', article_id, lang_list);
+
+    set_article_title(article_id, title_html);
+    set_article_content(article_id, content_html);
+
+    var no_helpers = false;
+    if(!$('.article_helper_right')[0]){
+        no_helpers = true;
+    }
+
+    sanitize_article(article_id,true,no_helpers);
+
+    if(view_style == 2){
+        var container = '#three_way_contents';
+    }else if(view_style == 3 || view_style == 4){
+        var container = '#article_dialog';
+    }else{
+        var container = '#article_' + article_id;
+    }
+
+    var top = $(container).position().top - 20;
+    if((scroll_top > 0 || top < 0) && force_no_scroll == 0){
+        if(view_style == 2){
+            $(container).scrollTo('0px');
+        }else if(view_style == 3 || view_style == 4){
+            $(container).scrollTo('0px');
+        }else{
+            scroll_to_article(article_id,false,true);
+        }
+    }
+    check_bottom();
+}
+
+function translate_callback_error(article_id){
+    is_translating = false;
+    add_to_translation_container('select_error', article_id);
+    $('#article_contents_inner_' + article_id).removeClass('translated');
+}
+
+function translate_callback_overusage_warning(article_id){
+    $('#article_full_contents_' + article_id).find('.icon-article_topbar_translate_article').removeClass('loading');
+    $('#article_full_contents_' + article_id).addClass('show-translator');
+    is_translating = false;
+    add_to_translation_container('overusage_warning', article_id);
+    $('#article_contents_inner_' + article_id).removeClass('translated');
+}
+
+function translate_callback_overusage_error(article_id){
+    $('#article_full_contents_' + article_id).find('.icon-article_topbar_translate_article').removeClass('loading');
+    $('#article_footer_' + article_id + ' .icon-article_topbar_translate_article').removeClass('active');
+    is_translating = false;
+    $('#article_contents_inner_' + article_id).removeClass('translated');
+
+    var html = '<div class="user_over_feeds_limit_popup">';
+    html += '<div class="user_over_feeds_limit_popup_h1">Request a custom plan to continue translating articles!</div>';
+
+    html += '<p class="user_over_feeds_limit_popup_warning flex"><span class="icon19 icon-exclamation-mark mr-3"></span><span>The Translation service is temporarily disabled because you are overusing it. To activate it again, you will need an Custom plan.</span></p>';
+    html += '<div class="user_over_feeds_limit_popup_btns flex justify-content-between">';
+    html += '<a class="graylink_darklink underlink" href="javascript:void(0);" onclick="inno_dialog_close(\'subscriptions_overlimit\');">Close</a>';
+
+    html += '<button class="bluebutton greenbutton" style="width:144px; height: 40px;" onclick="dialog(\'feedback_dialog\')">' + _js('Contact support') + '</button>';
+
+    html += '</div>';
+    html += '</div>';
+
+    dialog('subscriptions_overlimit',{content: html});
+    add_to_translation_container('select_error', article_id);
+
+}
+
+function back_to_origin_lang_js(article_id,dir){
+    if(!$('#article_contents_inner_' + article_id).hasClass('translated')){
+        return;
+    }
+    $('#article_full_contents_' + article_id).removeClass('show-translator');
+    $('#translate_button_' + article_id).removeClass('article_title_buttons_active');
+    $('#article_footer_' + article_id + ' .icon-article_topbar_translate_article').removeClass('active');
+    $('#article_contents_inner_' + article_id).removeClass('translated');
+    $('#article_' + article_id).data('translated',0);
+    $('#translate_tippy').remove();
+    $('#mobilize_tippy').remove();
+
+    if(dir == 'rtl'){
+        $('#article_' + article_id).find('div[dir="ltr"]').prop('dir','rtl');
+    }else{
+        $('#article_' + article_id).find('div[dir="rtl"]').prop('dir','ltr');
+    }
+
+    add_to_translation_container('transl_default', article_id);
+}
+
+function back_to_origin_lang(article_id){
+    do_loading();
+    xajax_back_to_origin_lang(article_id);
+}
+
+function add_to_translation_container(status, article_id, lang_list){
+    if(status == 'select_success'){
+        var transHeader = lang_list;
+    }else if(status == 'select_error'){
+        var transHeader = '<div class="redlink">' + _js("Cannot translate article.") + ' ' +_js("Please try again later.") + '</div>';
+    }else if(status == 'overusage_warning'){
+        var transHeader = '<div class="tts-overusage-warning d-block"><div class="overusage-warning-inner m-0 px-2 flex h-100"><span class="icon-exclamation-mark icon14 ml-1"></span><p class="ml-2 text-sm"><span>You are overusing the <b>Translation service</b>. If you keep your current levels of use, you will need to switch to Custom plan.</span> <a class="underlink" href="javascript:void(0);" onclick="dialog(\'feedback_dialog\')">Contact us</a> for details. <a href="javascript:void(0);" onclick="translate_article(' + article_id + ',false,true)" class="underlink">Understood and translate</a></p></div></div>';
+    }else if(status == 'transl_default'){
+        var transHeader = '<a class="underlink" href="javascript:void(0);" onclick="translate_article(' + article_id + ')">' + _js('Translate article') + '</a>';
+    }else if(status == 'clean'){
+        var transHeader = '<a class="underlink" href="javascript:void(0);" onclick="translate_article(' + article_id + ')">' + _js('Translate article') + '</a>';
+    }
+    if(transHeader == ''){
+        $('#article_full_contents_' + article_id).find('.translation-container').html(transHeader);//.hide();
+    }else{
+        $('#article_full_contents_' + article_id).find('.translation-container').html(transHeader);//.show();
+    }
+}
+
+function bing_lang_changed(selector, article_id){
+    var selected_lang = $(selector).val();
+    $('#article_contents_inner_' + article_id).removeClass('translated');
+    translate_article(article_id, selected_lang);
+}
+
+function activate_article_translate_from_input(){
+    var langs = $('#article_translate_from_input').data('langs');
+    var all_langs = $('#article_translate_from_input').data('all_langs');
+
+    if($('#article_translate_from').find('tags')[0]){
+        return;
+    }
+
+    var $input = $('#article_translate_from_input')
+        .tagify({
+                whitelist : all_langs,
+                dropdown : {
+                    enabled   : 0,
+                    closeOnSelect: true,
+                    editTags: false,
+                    maxItems: 1000
+                }
+            })
+            .on('blur', function(e, k){
+                save_translate_from_tags(e, k);
+            });
+    var tagify = $input.data('tagify');
+    if(langs){
+        tagify.addTags(langs);
+    }
+}
+
+function save_translate_from_tags(e,k){
+    var result_tags = [];
+    var tags = [];
+
+    try{
+        result_tags = JSON.parse($('#article_translate_from_input').val());
+    }catch(e){}
+
+    if(result_tags){
+        for(var i in result_tags){
+            tags.push(result_tags[i].value);
+        }
+    }
+
+    $('#article_translate_from_input').data('langs',tags);
+
+    if(tags.length > 0){
+        xajax_save_user_pref('article_translate_from', tags);
+    }
+}
+
+function change_translation_preference(selector){
+    var choosen_translation = $(selector).val();
+    if(choosen_translation == 0){
+        $('.class_preference_article_translate_to').hide();
+        $('.class_preference_article_translate_from').hide();
+    }else if(choosen_translation == 2){
+        $('.class_preference_article_translate_to').show();
+        $('.class_preference_article_translate_from').hide();
+    }else if(choosen_translation == 1){
+        $('.class_preference_article_translate_to').show();
+        $('.class_preference_article_translate_from').show();
+        activate_article_translate_from_input();
+    }
+}
