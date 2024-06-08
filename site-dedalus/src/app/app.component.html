@@ -5,7 +5,7 @@
     <!-- Menu superior -->
     <div class="flex justify-center mb-16">
       <div class="flex font-raleway justify-between
-                text-white  text-sm font-semibold
+                text-third-color  text-sm font-semibold
                 w-1/2 p-4">
         <a href="" class="hover:text-fourth-color"> sobre </a>
         <a href="" class="hover:text-fourth-color"> serviços </a>
@@ -23,7 +23,7 @@
 
     <!--subtitulos e animações-->  
     <div class="flex justify-center mb-16">
-      <div class="flex flex-col w-3/5 font-exo font-semibold text-white">
+      <div class="flex flex-col w-3/5 font-exo font-semibold text-third-color">
         <div class="text-center text-lg">
           <span *ngFor="let text of ['análise de dados, ','previsões, ','modelos, ','algoritmos.']; let i =index" [class.text-first-color]="labelColorIndex == i+1">
             {{text}}
@@ -45,12 +45,12 @@
     <!--SOBRE-->  
     <!--div roxo-->
     <div class="flex flex-col justify-center mb-8
-                bg-second-color p-10 rounded-lg">
+                bg-first-color p-10">
       <div>
         <topic-marker [topico]="'sobre'"></topic-marker>
       </div>
-      <div class="p-10 text-white text-justify font-raleway
-                  text-base">
+      <div class="p-10 text-fifth-color text-justify font-raleway
+                  text-base font-semibold">
         <p class="mb-4">Com a Dedalus, sua empresa incorpora as últimas
           tendências no campo da análise de dados e inteligência
           artificial para obter insights valiosos e previsões precisas,
@@ -72,8 +72,38 @@
   
     <!--div estatísticas-->
     <div class="flex flex-col justify-center mb-16
-                bg-fourth-color p-10 rounded-lg mx-8">
-      oi
+                bg-third-color p-10 mx-8">
+      <!--div texto-->
+      <div class="font-raleway text-justify text-sm mb-4">De acordo com um estudo de Harvard*,
+        <span class="font-bold">empresas que utilizam análise de dados 
+          e algoritmos de aprendizado de máquina em suas decisões superam,
+          em no mínimo 70%, as suas concorrente que não utilizam 
+        </span>em vários fatores, como:</div>
+      <!--div quadros-->
+      <div class="flex justify-between">
+        <span class="bg-second-color rounded text-center
+          text-third-color font-extrabold text-lg mr-2 p-2">
+          NOVOS SERVIÇOS/PRODUTOS
+        </span>
+        <span class="bg-second-color rounded text-center
+          text-third-color font-extrabold text-lg mr-2 p-2">
+          LEALDADE E RETENÇÃO DE CLIENTES
+        </span>
+        <span class="bg-second-color rounded text-center
+          text-third-color font-extrabold text-lg mr-2 p-2">
+          SATISFAÇÃO DA EQUIPE DE TRABALHO
+        </span>
+        <span class="bg-second-color rounded text-center
+          text-third-color font-extrabold text-lg mr-2 p-2">
+          EFICIÊNCIA OPERACIONAL
+        </span>
+        <span class="bg-second-color rounded text-center
+          text-third-color font-extrabold text-lg p-2">
+          LUCRATIVIDADE
+        </span>
+      </div>
+      <!--div fonte-->
+      <div></div>
     </div>
 
   </div>
