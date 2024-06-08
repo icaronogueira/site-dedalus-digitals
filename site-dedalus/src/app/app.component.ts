@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TopicMarkerComponent } from './topic-marker/topic-marker.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, TopicMarkerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
