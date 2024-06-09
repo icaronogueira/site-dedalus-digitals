@@ -47,9 +47,9 @@
     <div class="flex flex-col justify-center mb-8
                 bg-first-color p-10">
       <div>
-        <topic-marker [topico]="'sobre'"></topic-marker>
+        <topic-marker [topico]="'sobre'" [textcolor]="'text-fifth-color'"></topic-marker>
       </div>
-      <div class="p-10 text-fifth-color text-justify font-raleway
+      <div class="p-10 text-justify font-raleway
                   text-base font-semibold">
         <p class="mb-4">Com a Dedalus, sua empresa incorpora as últimas
           tendências no campo da análise de dados e inteligência
@@ -80,31 +80,54 @@
           em no mínimo 70%, as suas concorrente que não utilizam 
         </span>em vários fatores, como:</div>
       <!--div quadros-->
-      <div class="flex justify-between">
-        <span class="bg-second-color rounded text-center
-          text-third-color font-extrabold text-lg mr-2 p-2">
+      <div class="flex justify-between mb-4">
+        <div class="flex items-center bg-second-color rounded
+          text-center text-third-color font-extrabold text-lg
+          mr-2 p-2">
           NOVOS SERVIÇOS/PRODUTOS
-        </span>
-        <span class="bg-second-color rounded text-center
-          text-third-color font-extrabold text-lg mr-2 p-2">
+        </div>
+        <div class="flex items-center bg-second-color rounded
+          text-center text-third-color font-extrabold text-lg
+          mr-2 p-2">
           LEALDADE E RETENÇÃO DE CLIENTES
-        </span>
-        <span class="bg-second-color rounded text-center
-          text-third-color font-extrabold text-lg mr-2 p-2">
+        </div>
+        <div class="flex items-center bg-second-color rounded
+          text-center text-third-color font-extrabold text-lg
+          mr-2 p-2">
           SATISFAÇÃO DA EQUIPE DE TRABALHO
-        </span>
-        <span class="bg-second-color rounded text-center
-          text-third-color font-extrabold text-lg mr-2 p-2">
+        </div>
+        <div class="flex items-center bg-second-color rounded
+          text-center text-third-color font-extrabold text-lg
+          mr-2 p-2">
           EFICIÊNCIA OPERACIONAL
-        </span>
-        <span class="bg-second-color rounded text-center
-          text-third-color font-extrabold text-lg p-2">
+        </div>
+        <div class="flex items-center bg-second-color rounded
+          text-center text-third-color font-extrabold text-lg p-2">
           LUCRATIVIDADE
-        </span>
+        </div>
       </div>
       <!--div fonte-->
-      <div></div>
+      <div class="text-right text-xs">*Harvard Business Review Analytics Services Survey, Novembro de 2022</div>
     </div>
+
+
+    <!--NOSSOS SERVIÇOS-->  
+    <div class="flex flex-col justify-center mb-8">
+      <topic-marker class="mb-8" [topico]="'nossos serviços'" [textcolor]="'text-third-color'"></topic-marker>
+      <div class="flex justify-center mb-8">
+        <img class="w-4/5" src="../assets/nossos servicos.png">
+      </div>
+
+      <!--caixa da rua com os estabelecimentos-->
+      <div class="bg-first-color p-10 font-raleway">
+        <p class="text-center font-bold text-sm">Isso são apenas alguns exemplos do que podemos oferecer...
+           aqui estão algumas aplicações de nossos serviços aos mais variados
+           tipos de empresas:
+        </p>
+      </div>
+    </div>
+
+
 
   </div>
 </div>
