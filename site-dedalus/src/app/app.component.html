@@ -120,10 +120,79 @@
 
       <!--caixa da rua com os estabelecimentos-->
       <div class="bg-first-color p-10 font-raleway">
-        <p class="text-center font-bold text-sm">Isso são apenas alguns exemplos do que podemos oferecer...
+        <p class="text-center font-bold text-sm mb-8">Isso são apenas alguns exemplos do que podemos oferecer...
            aqui estão algumas aplicações de nossos serviços aos mais variados
            tipos de empresas:
         </p>
+
+
+        <!--interação da rua com os estabelecimentos-->
+        <div>
+          <div class="flex justify-between items-end">
+              <div class="relative group">
+                <h3 class=" text-opacity-0 group-hover:brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Lava-jato
+                </h3>
+                <img (click)="imageClick('lavajato')" class="w-auto h-14 group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100" src="../assets/carwash_prod.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Escritório jurídico
+                </h3>
+                <img (click)="imageClick('escritorio')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/advocacia_prod.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Joalheria
+                </h3>
+                <img (click)="imageClick('joalheria')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/joalheria_prod.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Restaurante
+                </h3>
+                <img (click)="imageClick('restaurante')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-24" src="../assets/restaurante_prod.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Sorveteria
+                </h3>
+                <img (click)="imageClick('sorveteria')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/icecream_producao.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Mercado
+                </h3>
+                <img (click)="imageClick('mercado')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/mercado_prod.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Academia
+                </h3>
+                <img (click)="imageClick('academia')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/academia_producao.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Boutique
+                </h3>
+                <img (click)="imageClick('boutique')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-24" src="../assets/boutique_prod.png">
+              </div>
+              <div class="relative group">
+                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                  Clínica
+                </h3>
+                <img (click)="imageClick('clinica')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/clinica_prod.png">
+              </div>
+            </div>
+          <div>
+            <img src="../assets/rua.png">
+          </div>
+        </div>
+
+        <!--Caixa de texto com a descrição dos serviços-->
+        <div>
+          <app-servicos-estabelecimento [estabelecimento]="estabelecimento"></app-servicos-estabelecimento>
+        </div>
       </div>
     </div>
 
