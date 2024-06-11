@@ -3,11 +3,16 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TopicMarkerComponent } from './topic-marker/topic-marker.component';
 import { ServicosEstabelecimentoComponent } from './servicos-estabelecimento/servicos-estabelecimento.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, TopicMarkerComponent, ServicosEstabelecimentoComponent],
+  imports: [RouterOutlet, CommonModule, 
+    TopicMarkerComponent, ServicosEstabelecimentoComponent,
+    NgxMaskDirective, NgxMaskPipe
+],
+  providers: [provideNgxMask()],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
