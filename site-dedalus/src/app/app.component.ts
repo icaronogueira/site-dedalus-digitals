@@ -15,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   
   title = 'site-dedalus';
   labelColorIndex=1;
-  estabelecimento: string = "";
+  estabelecimento: string = "lavajato";
 
 
   ngOnInit(): void {
