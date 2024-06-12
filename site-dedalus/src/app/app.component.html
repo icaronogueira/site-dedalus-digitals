@@ -1,49 +1,35 @@
 <!-- main div on the center of page -->
 <div class="flex justify-center">
-  <div class="w-3/4 flex flex-col justify-center">
-  
-    <!-- Menu superior -->
-    <div class="flex justify-center mb-16">
-      <div class="flex font-raleway justify-between
-                text-third-color  text-sm font-semibold
-                w-1/2 p-4">
-        <a href="" class="hover:text-fourth-color"> sobre </a>
-        <a href="" class="hover:text-fourth-color"> serviços </a>
-        <a href="" class="hover:text-fourth-color"> operação </a>
-        <a href="" class="hover:text-fourth-color"> solicite um orçamento </a>
-        <a href="" class="hover:text-fourth-color"> contato </a>
-      </div>
-    </div>
+  <div class="w-full flex flex-col justify-center p-8 font-sans">
 
-    <!--main image on the front-->  
-    <div class="flex justify-center mb-16">
-      <img  class="w-2/6" src="../assets/main_logo.png" alt="logo" border="0">
-    </div>
-
-
-    <!--subtitulos e animações-->  
-    <div class="flex justify-center mb-16">
-      <div class="flex flex-col w-3/5 font-exo font-semibold text-third-color">
-        <div class="text-center text-lg">
-          <span *ngFor="let text of ['análise de dados, ','previsões, ','modelos, ','algoritmos.']; let i =index" [class.text-first-color]="labelColorIndex == i+1">
-            {{text}}
-          </span>
+    <!--DIV SEÇÃO INICIAL-->
+    <div class="bg-second-color">
+      
+        <!--Barra de navegação superior-->
+        <div class="flex flex-row text-sm font-semibold">
+            <!--Logo-->
+            <div class="flex w-1/4 justify-center">
+              <img class="w-32" src="../assets/main_logo.png">
+            </div>
+            <!--Menu-->
+            <div class="flex w-1/2 text-white justify-between px-14">
+              <a class="flex items-center hover:text-fourth-color cursor-pointer">Sobre</a>
+              <a class="flex items-center hover:text-fourth-color cursor-pointer">Nossa operação</a>
+              <a class="flex items-center hover:text-fourth-color cursor-pointer">Nossos serviços</a>
+              <a class="flex items-center hover:text-fourth-color cursor-pointer">Solicite um orçamento</a>
+            </div>
+            <!--Botão Contato-->
+            <div class="flex w-1/4 justify-center py-6 px-28">
+              <button class="w-full bg-white hover:bg-fourth-color text-fifth-color
+                            rounded">Contato</button>
+            </div>
         </div>
-        <div class="text-center text-xl mb-2 " [class.text-first-color]="labelColorIndex == 5">
-          tecnologia de ponta para sua empresa voar sobre a concorrência.
-        </div>
-        <div class="text-center flex justify-between px-20">
-          <img class="w-1/5 opacity-30 rounded" [class.opacity-80]="labelColorIndex == 1 || labelColorIndex == 5" src="../assets/profit curve.png">
-          <img class="w-1/5 opacity-30 rounded" [class.opacity-80]="labelColorIndex == 2 || labelColorIndex == 5" src="../assets/inventory.png">
-          <img class="w-1/5 opacity-30 rounded" [class.opacity-80]="labelColorIndex == 3 || labelColorIndex == 5" src="../assets/manufacturing line.png">
-          <img class="w-1/5 opacity-30 rounded" [class.opacity-80]="labelColorIndex == 4 || labelColorIndex == 5" src="../assets/attending customer.png">
-        </div>
-      </div>
     </div>
 
 
-    <!--SOBRE-->  
+    <!--SOBRE-->
     <!--div roxo-->
+    <!--
     <div class="flex flex-col justify-center mb-8
                 bg-first-color p-10">
       <div>
@@ -69,17 +55,15 @@
       </div>
     </div>
 
-  
-    <!--div estatísticas-->
+    -->
+    <!-- 
     <div class="flex flex-col justify-center mb-16
                 bg-third-color p-10 mx-8">
-      <!--div texto-->
       <div class="font-raleway text-justify text-sm mb-4">De acordo com um estudo de Harvard*,
         <span class="font-bold">empresas que utilizam análise de dados 
           e algoritmos de aprendizado de máquina em suas decisões superam,
           em no mínimo 70%, as suas concorrente que não utilizam 
         </span>em vários fatores, como:</div>
-      <!--div quadros-->
       <div class="flex justify-between mb-4">
         <div class="flex items-center bg-second-color rounded
           text-center text-third-color font-extrabold text-lg
@@ -106,19 +90,16 @@
           LUCRATIVIDADE
         </div>
       </div>
-      <!--div fonte-->
       <div class="text-right text-xs">*Harvard Business Review Analytics Services Survey, Novembro de 2022</div>
     </div>
 
 
-    <!--NOSSOS SERVIÇOS-->  
     <div class="flex flex-col justify-center mb-16">
       <topic-marker class="mb-8" [topico]="'nossos serviços'" [textcolor]="'text-third-color'"></topic-marker>
       <div class="flex justify-center mb-8">
         <img class="w-4/5" src="../assets/nossos servicos.png">
       </div>
 
-      <!--caixa da rua com os estabelecimentos-->
       <div class="bg-first-color p-10 font-raleway">
         <p class="text-center font-bold text-sm mb-8">Isso são apenas alguns exemplos do que podemos oferecer...
            aqui estão algumas aplicações de nossos serviços aos mais variados
@@ -126,7 +107,6 @@
         </p>
 
 
-        <!--interação da rua com os estabelecimentos-->
         <div>
           <div class="flex justify-between items-end">
               <div class="relative group">
@@ -189,7 +169,6 @@
           </div>
         </div>
 
-        <!--Caixa de texto com a descrição dos serviços-->
         <div>
           <app-servicos-estabelecimento [estabelecimento]="estabelecimento"></app-servicos-estabelecimento>
         </div>
@@ -197,7 +176,6 @@
     </div>
 
 
-    <!--NOSSA OPERAÇÃO-->  
     <div class="flex flex-col justify-center mb-16">
       <topic-marker class="mb-8" [topico]="'nossa operação'" [textcolor]="'text-third-color'"></topic-marker>
      
@@ -259,7 +237,6 @@
     </div>
 
 
-    <!--DIV formulário-->
     <div class="flex flex-col justify-center mb-16
                 bg-fifth-color p-4 mx-32 text-white font-raleway text-sm">
 
@@ -348,6 +325,8 @@
 
       </div>
     </div>
+ -->
+
 
   </div>
 </div>
