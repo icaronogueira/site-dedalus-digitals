@@ -1,9 +1,9 @@
 <!-- main div on the center of page -->
 <div class="flex justify-center">
-  <div class="w-full flex flex-col justify-center p-8 font-sans">
+  <div class="w-full flex flex-col justify-center font-sans">
 
     <!--DIV SEÇÃO INICIAL-->
-    <div class="bg-second-color">
+    <div class="secao-inicial p-6 bg-cover bg-no-repeat bg-center">
       
         <!--Barra de navegação superior-->
         <div class="flex flex-row text-sm font-semibold">
@@ -12,96 +12,147 @@
               <img class="w-32" src="../assets/main_logo.png">
             </div>
             <!--Menu-->
-            <div class="flex w-1/2 text-white justify-between px-14">
-              <a class="flex items-center hover:text-fourth-color cursor-pointer">Sobre</a>
-              <a class="flex items-center hover:text-fourth-color cursor-pointer">Nossa operação</a>
-              <a class="flex items-center hover:text-fourth-color cursor-pointer">Nossos serviços</a>
-              <a class="flex items-center hover:text-fourth-color cursor-pointer">Solicite um orçamento</a>
+            <div class="flex w-3/4 text-white justify-between px-20">
+              <a class="flex items-center hover:text-first-color cursor-pointer">Sobre</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer">Nossa operação</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer">Nossos serviços</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer">Nossa missão</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer">Dúvidas frequentes</a>
             </div>
             <!--Botão Contato-->
             <div class="flex w-1/4 justify-center py-6 px-28">
-              <button class="w-full bg-white hover:bg-fourth-color text-fifth-color
+              <button class="w-full bg-white hover:bg-first-color text-fifth-color
                             rounded">Contato</button>
             </div>
         </div>
+
+        <!--Títulos-->
+        <div class="mt-32 w-1/2 pl-24 text-white font-semibold">
+          <h1 class="text-5xl">Tecnologia de ponta <span class="text-first-color">para sua empresa decolar</span></h1>
+          <p class="mt-4 pr-48 text-justify text-sm">Utilize as tendências mais modernas da análise de dados e da inteligência artificial para fazer previsões e 
+            insights sobre seu negócio, trazendo mais eficiência, qualidade e rentabilidade. 
+          </p>
+        </div>
+
+        <!--instagram logo-->
+        <div class="mt-24 pl-24 w-1/2 h-10 text-white">
+          <a><img class="w-6 transition duration-300 ease-in-out hover:opacity-50 cursor-pointer" src="../assets/instagram-icon.svg"
+          alt="instagram logo"></a>
+        </div>
+
     </div>
 
 
-    <!--SOBRE-->
-    <!--div roxo-->
-    <!--
-    <div class="flex flex-col justify-center mb-8
-                bg-first-color p-10">
-      <div>
-        <topic-marker [topico]="'sobre'" [textcolor]="'text-fifth-color'"></topic-marker>
-      </div>
-      <div class="p-10 text-justify font-raleway
-                  text-base font-semibold">
-        <p class="mb-4">Com a Dedalus, sua empresa incorpora as últimas
-          tendências no campo da análise de dados e inteligência
-          artificial para obter insights valiosos e previsões precisas,
-          o que leva a decisões mais inteligentes, otimização da
-          produtividade e resultados extraordinários.
-        </p>
-        <p>
-          Analisamos seu negócio e aplicamos tecnologias que utilizam
-          redes neurais artificiais inspiradas no cérebro humano para
-          processar e analisar grandes volumes de dados com precisão e
-          rapidez. Imagine um cérebro artificial capaz de aprender
-          padrões complexos e fazer previsões sobre os seus clientes,
-          seus produtos, seu modelo de negócio. Isso é literalmente
-          trazer sua empresa para o futuro!
-        </p>
-      </div>
-    </div>
-
-    -->
-    <!-- 
-    <div class="flex flex-col justify-center mb-16
-                bg-third-color p-10 mx-8">
-      <div class="font-raleway text-justify text-sm mb-4">De acordo com um estudo de Harvard*,
-        <span class="font-bold">empresas que utilizam análise de dados 
-          e algoritmos de aprendizado de máquina em suas decisões superam,
-          em no mínimo 70%, as suas concorrente que não utilizam 
-        </span>em vários fatores, como:</div>
-      <div class="flex justify-between mb-4">
-        <div class="flex items-center bg-second-color rounded
-          text-center text-third-color font-extrabold text-lg
-          mr-2 p-2">
-          NOVOS SERVIÇOS/PRODUTOS
-        </div>
-        <div class="flex items-center bg-second-color rounded
-          text-center text-third-color font-extrabold text-lg
-          mr-2 p-2">
-          LEALDADE E RETENÇÃO DE CLIENTES
-        </div>
-        <div class="flex items-center bg-second-color rounded
-          text-center text-third-color font-extrabold text-lg
-          mr-2 p-2">
-          SATISFAÇÃO DA EQUIPE DE TRABALHO
-        </div>
-        <div class="flex items-center bg-second-color rounded
-          text-center text-third-color font-extrabold text-lg
-          mr-2 p-2">
-          EFICIÊNCIA OPERACIONAL
-        </div>
-        <div class="flex items-center bg-second-color rounded
-          text-center text-third-color font-extrabold text-lg p-2">
-          LUCRATIVIDADE
-        </div>
-      </div>
-      <div class="text-right text-xs">*Harvard Business Review Analytics Services Survey, Novembro de 2022</div>
+    <!--soluções para negócios-->
+    <div class="mt-16 mb-8 flex flex-col items-center">
+      <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Soluções personalizadas para sua empresa</h1>
+      <p class=" text-center mt-4 text-sm w-2/4 font-semibold">Análise e modelagem de dados para o caso específico do seu negócio. </p>
     </div>
 
 
-    <div class="flex flex-col justify-center mb-16">
-      <topic-marker class="mb-8" [topico]="'nossos serviços'" [textcolor]="'text-third-color'"></topic-marker>
-      <div class="flex justify-center mb-8">
-        <img class="w-4/5" src="../assets/nossos servicos.png">
-      </div>
+    <!--sobre-->
 
-      <div class="bg-first-color p-10 font-raleway">
-        <p class="text-center font-bold text-sm mb-8">Isso são apenas alguns exemplos do que podemos oferecer...
+    <div class="w-full flex px-32">
+      <div class="w-1/2 flex justify-center">
+        <img class="w-3/4" src="../assets/sobre-imagem.png">
+      </div>
+      <div class="w-1/2 flex flex-col py-24">
+        <div class="w-2/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
+          SOBRE
+        </div>
+        <div class="font-bold text-second-color text-xl mb-4">
+          IA de ponta para resultados excepcionais
+        </div>
+        <div class="text-justify text-sm pr-32 font-semibold">
+          <p class="mb-2">Com a Dedalus, sua empresa incorpora as últimas
+            tendências no campo da análise de dados e inteligência
+            artificial para obter insights valiosos e previsões precisas,
+            o que leva a decisões mais inteligentes, otimização da
+            produtividade e resultados extraordinários.
+          </p>
+          <p>
+            Analisamos seu negócio e aplicamos tecnologias que utilizam
+            redes neurais artificiais inspiradas no cérebro humano para
+            processar e analisar grandes volumes de dados com precisão e
+            rapidez. Imagine um cérebro artificial capaz de aprender
+            padrões complexos e fazer previsões sobre os seus clientes,
+            seus produtos, seu modelo de negócio. Isso é literalmente
+            trazer sua empresa para o futuro!
+          </p>
+
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--nossa operação-->
+
+    <div class="w-full flex px-32 rounded-ee-full">
+      <div class="w-1/2 flex flex-col py-24 px-16">
+        <div class="w-4/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
+          NOSSA OPERAÇÃO
+        </div>
+        <div class="font-bold text-second-color text-xl mb-4">
+          Adaptabilidade e excelência
+        </div>
+        <div class="text-justify text-sm font-semibold">
+          <p class="mb-2">
+            <span class="font-bold">1. Reuniões preliminares e análise do negócio: </span>
+            Onde entendemos seus objetivos, desafios e expectativas, além do seu modelo de negócio. Essa troca de 
+            informações será crucial para traçarmos um plano personalizado para a implementaçãp de soluções sob medida.
+          </p>
+          <p class="mb-2">
+            <span class="font-bold">2. Análise dos dados e engenharia de requisitos: </span>
+            Coletamos, selecionamos e processamos os dados relevantes, sejam eles de vendas, clientes, operações ou 
+            qualquer área estratégica para o seu negócio. 
+          </p>
+          <p class="mb-2">
+            <span class="font-bold">3. Definição e treinamento do modelo de previsão: </span>
+            Utilizamos técnicas de IA e Deep Learning para treinar modelos que aprenderão com seus dados, fazendo previsões e 
+            utilizando essas mesmas previsões para melhorar sua eficiência, identificando padrões complexos.
+          </p>
+          <p>
+            <span class="font-bold">4. Geramos insights: </span>
+            Com base nos modelos treinados, extraímos insights valiosos e previsões precisas sobre o 
+            seu negócio, permitindo que você tome decisões mais assertivas e estratégicas.
+          </p>
+
+        </div>
+        <div>
+
+        </div>
+      </div>
+      <div class="w-1/2 flex items-center">
+        <img class="w-4/5 h-3/4 " src="../assets/retangulos.png">
+      </div>
+      
+    </div>
+
+
+    <img class="w-full" src="../assets/divisao-pagina.png">
+
+    
+    <div class="w-full bg-third-color">
+      <!--Nossos serviços-->
+      <div class=" mb-8 flex flex-col items-center ">
+        <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Nossos serviços</h1>
+        <p class=" text-center text-sm w-2/4 font-semibold"> Oferecemos serviços de análise de dados e inteligência artificial para empresas. As possibilidades não se limitam a esta lista. </p>
+      </div>
+      
+      <!--imagem nossos serviços-->
+      <div class="w-full flex justify-center mb-8">
+        <img class="w-3/4" src="../assets/nossos servicos.png">
+      </div>
+    </div>  
+
+    <!--estabelecimentos-->
+    <div class="secao-estabelecimentos p-6 bg-cover bg-no-repeat bg-center">
+      <div class="p-10">
+        <p class="text-center text-white font-bold text-base mb-8">Isso são apenas alguns exemplos do que podemos oferecer...
            aqui estão algumas aplicações de nossos serviços aos mais variados
            tipos de empresas:
         </p>
@@ -110,55 +161,55 @@
         <div>
           <div class="flex justify-between items-end">
               <div class="relative group">
-                <h3 class=" text-opacity-0 group-hover:brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white  text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Lava-jato
                 </h3>
                 <img (click)="imageClick('lavajato')" class="w-auto h-14 group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100" src="../assets/carwash_prod.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Escritório jurídico
                 </h3>
                 <img (click)="imageClick('escritorio')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/advocacia_prod.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Joalheria
                 </h3>
                 <img (click)="imageClick('joalheria')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/joalheria_prod.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Restaurante
                 </h3>
                 <img (click)="imageClick('restaurante')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-24" src="../assets/restaurante_prod.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Sorveteria
                 </h3>
                 <img (click)="imageClick('sorveteria')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/icecream_producao.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Mercado
                 </h3>
                 <img (click)="imageClick('mercado')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/mercado_prod.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Academia
                 </h3>
                 <img (click)="imageClick('academia')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/academia_producao.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Boutique
                 </h3>
                 <img (click)="imageClick('boutique')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-24" src="../assets/boutique_prod.png">
               </div>
               <div class="relative group">
-                <h3 class="text-opacity-0 group-hover: brightness-50 group-hover:text-opacity-100 transition duration-300 text-center font-raleway font-semibold text-xs text-fifth-color">
+                <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Clínica
                 </h3>
                 <img (click)="imageClick('clinica')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/clinica_prod.png">
@@ -176,157 +227,56 @@
     </div>
 
 
-    <div class="flex flex-col justify-center mb-16">
-      <topic-marker class="mb-8" [topico]="'nossa operação'" [textcolor]="'text-third-color'"></topic-marker>
-     
-      <div class="px-14 font-raleway text-base text-justify">
+     <!--nossos valores-->
 
-        <div class="bg-third-color p-4 bg-opacity-75 mb-2">
-          <span class="font-semibold">1. Reuniões preliminares e 
-            análise do negócio: 
-          </span>
-          entender seus objetivos, desafios e expectativas, além 
-          do seu modelo de negócio. Essa troca de informações será 
-          crucial para traçarmos um plano personalizado para a 
-          implementação de soluções sob medida.
-        </div>
-
-        <div class="bg-third-color p-4 bg-opacity-75 mb-2">
-          <span class="font-semibold">2. Coletamos seus dados: 
-          </span>
-          Com responsabilidade, reunimos seus dados relevantes, sejam eles de vendas, clientes, operações ou
-          qualquer outra área estratégica para o seu negócio. 
-        </div>
-
-        <div class="bg-third-color p-4 bg-opacity-75 mb-2">
-          <span class="font-semibold">3. Treinamos modelos de previsão:  
-          </span>
-          Utilizamos técnicas avançadas de Deep Learning para treinar modelos personalizados que aprenderão com os 
-          dados coletados, identificando padrões e relações complexas.
-        </div>
-
-        <div class="bg-third-color p-4 bg-opacity-75 mb-4 ">
-          <span class="font-semibold">4. Geramos insights: 
-          </span>
-          Com base nos modelos treinados, extraimos insights valiosos sobre o futuro do seu negócio, permitindo que 
-          você tome decisões mais assertivas e estratégicas.
-        </div>
-
-
-        <div class="bg-third-color p-10 px-20 bg-opacity-85 font-bold text-center text-2xl">
-          Não importa o tamanho ou setor de sua empresa, a DEDALUS está aqui para ajudar!
-        </div>
-
+    <div class="w-full bg-third-color">
+      
+      <div class=" my-8 flex flex-col items-center ">
+        <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Nossa missão e valores</h1>
+        <p class=" text-center text-sm w-2/4 font-semibold"> Evolução computacional ao alcance de nossos clientes.</p>
       </div>
 
-    </div>
+      <!--imagem nossa missão-->
+      <div class="w-full flex justify-center mb-8">
+        <img class="w-3/4" src="../assets/missao.png">
+      </div>
 
-
-    <div class="flex flex-col justify-center
-                bg-first-color p-10">
-        <topic-marker class="mb-4" [topico]="'solicite um orçamento'" [textcolor]="'text-fifth-color'"></topic-marker>
-
-        <div class="px-20 text-justify font-semibold">
-          <p>
-            Preencha o formulário abaixo para solicitar um orçamento e descobrir como podemos impulsionar o seu
-            sucesso.
-          </p>
-          <p>Juntos construiremos um futuro mais próspero e inteligente para sua empresa!</p>
-        </div>
 
     </div>
 
+    <img class="w-full" src="../assets/divisao-pagina-2.png">
 
-    <div class="flex flex-col justify-center mb-16
-                bg-fifth-color p-4 mx-32 text-white font-raleway text-sm">
 
-      <div class="m-8">
-        <h1 class="font-semibold mb-8">Informações básicas do negócio</h1>
+    <!--DÚVIDAS FREQUENTES-->
+    <div class="w-full flex text-third-color bg-fifth-color px-32 mb-16 pb-16">
+
+      <!--Conteúdo-->
+      <div class="w-8/12">
+        <h1 class="  font-bold">Dúvidas Frequentes</h1>
         
-        <div class="flex flex-col">
-          <div class="mb-4">
-            <input type="text" id="nomeEmpresa" class="w-full border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color text-black" placeholder="Nome da empresa">
+        <!--colocar a faq aqui - accordion -->
+        <div *ngFor="let item of faqList" class="border-b">
+          <div (click)="toggleAccordion(item)" class="cursor-pointer flex justify-between items-center py-4">
+            <h3 class="text-sm font-medium">{{item.question}}</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor"
+                  class="w-5 h-5" [class.transform]="item.open ? 'rotate-180' : ''" >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
           </div>
-
-          <div class="mb-4">
-            <input type="text" id="nomeContato" class="w-full border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color text-black" placeholder="Nome do contato">
+          <div *ngIf="item.open" class="transition-all duration-300 ease-in-out">
+            <p class="p-4 text-sm text-justify">{{item.answer}}</p>
           </div>
-
-          <div class="mb-4">
-            <input type="text" id="cargoContato" class="w-full border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color text-black" placeholder="Cargo do contato">
-          </div>
-
-          <div class="flex mb-4 flex-row w-full">
-            <div class="w-1/2 mr-2">
-              <input type="text" placeholder="Telefone" mask="(00) 0 0000-0000" class="w-full text-black border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color">
-            </div>
-            <div class="w-1/2 ml-2">
-              <input type="text" placeholder="E-mail" class="w-full text-black border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color">
-            </div>
-          </div>
-
-          <div class="flex mb-4 flex-row w-full">
-            <div class="w-1/3 mr-2">
-              <select id="segmentoAtuacao" placeholder="Segmento de atuação" class="w-full text-black border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color">
-                <option value="">Segmento de atuação</option>
-                <option value="academia">Academia</option>
-                <option value="acougue">Açougue</option>
-                <option value="agenciadeviagens">Agência de viagens</option>
-                <option value="autoescola">Autoescola</option>
-                <option value="banco">Banco</option>
-                <option value="barbearia">Barbearia</option>
-                <option value="cabeleireiro">Cabeleireiro</option>
-                <option value="cafeteria">Cafeteria</option>
-                <option value="casaloterica">Casa lotérica</option>
-                <option value="clinicadentaria">Clínica dentária</option>
-                <option value="clinicaveterinaria">Clínica veterinária</option>
-                <option value="concessionaria">Concessionária</option>
-                <option value="consultoriomedico">Consultório médico</option>
-                <option value="drogaria">Drogaria</option>
-                <option value="eletrodomesticos">Eletrodomésticos</option>
-                <option value="escritoriodeadvocacia">Escritório de advocacia</option>
-                <option value="farmacia">Farmácia</option>
-                <option value="floricultura">Floricultura</option>
-                <option value="funeraria">Funerária</option>
-                <option value="hamburgueria">Hamburgueria</option>
-                <option value="hotel">Hotel</option>
-                <option value="imobiliaria">Imobiliária</option>
-                <option value="joalheria">Joalheria</option>
-                <option value="lavanderia">Lavanderia</option>
-                <option value="lanchonete">Lanchonete</option>
-                <option value="livraria">Livraria</option>
-                <option value="lojadeconveniencia">Loja de conveniência</option>
-                <option value="lojadedepartamentos">Loja de departamentos</option>
-                <option value="lojaderoupas">Loja de roupas</option>
-                <option value="mercado">Mercado</option>
-                <option value="oficinamecanica">Oficina mecânica</option>
-                <option value="otica">Ótica</option>
-                <option value="padaria">Padaria</option>
-                <option value="petshop">Pet shop</option>
-                <option value="pizzaria">Pizzaria</option>
-                <option value="postodegasolina">Posto de gasolina</option>
-                <option value="restaurante">Restaurante</option>
-                <option value="salaodebeleza">Salão de beleza</option>
-                <option value="supermercado">Supermercado</option>
-                <option value="universidade">Universidade</option>
-                <option value="outro">Outro...</option>
-                
-              </select>
-            </div>
-            <div class="w-1/3 ml-2">
-              <input type="text" placeholder="E-mail" class="w-full text-black border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color">
-            </div>
-            <div class="w-1/3 ml-2">
-              <input type="text" placeholder="E-mail" class="w-full text-black border border-fourth-color rounded-md p-2 pl-8 focus:outline-none focus:ring-2 focus:ring-second-color">
-            </div>
-          </div>
-
         </div>
 
       </div>
+      <!--Imagem-->
+      <div class="w-4/12 flex justify-center items-center">
+          <img class="h-96 w-auto" src="../assets/pergunta.png">
+      </div>
     </div>
- -->
 
+    
 
   </div>
 </div>
