@@ -13,15 +13,15 @@
             </div>
             <!--Menu-->
             <div class="flex w-3/4 text-white justify-between px-20">
-              <a class="flex items-center hover:text-first-color cursor-pointer">Sobre</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer">Nossa operação</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer">Nossos serviços</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer">Nossa missão</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer">Dúvidas frequentes</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer" href="#sobre">Sobre</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossa-operacao">Nossa operação</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossos-servicos">Nossos serviços</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer" href="#missao-valores">Nossa missão</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer" href="#duvidas">Dúvidas frequentes</a>
             </div>
             <!--Botão Contato-->
             <div class="flex w-1/4 justify-center py-6 px-28">
-              <button class="w-full bg-white hover:bg-first-color text-fifth-color
+              <button (click)="scrollToElement('contato')" class="w-full bg-white hover:bg-first-color text-fifth-color
                             rounded">Contato</button>
             </div>
         </div>
@@ -44,7 +44,7 @@
 
 
     <!--soluções para negócios-->
-    <div class="mt-16 mb-8 flex flex-col items-center">
+    <div id="sobre" class="mt-16 mb-8 flex flex-col items-center">
       <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Soluções personalizadas para sua empresa</h1>
       <p class=" text-center mt-4 text-sm w-2/4 font-semibold">Análise e modelagem de dados para o caso específico do seu negócio. </p>
     </div>
@@ -92,7 +92,7 @@
     <!--nossa operação-->
 
     <div class="w-full flex px-32 rounded-ee-full">
-      <div class="w-1/2 flex flex-col py-24 px-16">
+      <div id="nossa-operacao" class="w-1/2 flex flex-col py-24 px-16">
         <div class="w-4/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
           NOSSA OPERAÇÃO
         </div>
@@ -138,7 +138,7 @@
     
     <div class="w-full bg-third-color">
       <!--Nossos serviços-->
-      <div class=" mb-8 flex flex-col items-center ">
+      <div id="nossos-servicos" class=" mb-8 flex flex-col items-center ">
         <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Nossos serviços</h1>
         <p class=" text-center text-sm w-2/4 font-semibold"> Oferecemos serviços de análise de dados e inteligência artificial para empresas. As possibilidades não se limitam a esta lista. </p>
       </div>
@@ -229,9 +229,9 @@
 
      <!--nossos valores-->
 
-    <div class="w-full bg-third-color">
+    <div class="w-full bg-third-color items-center">
       
-      <div class=" my-8 flex flex-col items-center ">
+      <div id="missao-valores" class=" my-8 flex flex-col items-center ">
         <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Nossa missão e valores</h1>
         <p class=" text-center text-sm w-2/4 font-semibold"> Evolução computacional ao alcance de nossos clientes.</p>
       </div>
@@ -248,7 +248,7 @@
 
 
     <!--DÚVIDAS FREQUENTES-->
-    <div class="w-full flex text-third-color bg-fifth-color px-32 pb-16">
+    <div id="duvidas" class="w-full flex text-third-color bg-fifth-color px-32 pb-16">
 
       <!--Conteúdo-->
       <div class="w-8/12">
@@ -276,7 +276,9 @@
       </div>
     </div>
 
-    <div class="w-full flex flex-col py-16 bg-second-color items-center">
+
+    <!--contato-->
+    <div id="contato" class="w-full flex flex-col py-16 bg-second-color items-center">
       <img class="w-2/12 mb-8" src="../assets/main_logo.png">
       <p class="text-white">
         Tem um projeto em mente ou deseja saber como podemos te ajudar?
