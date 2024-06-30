@@ -1,18 +1,23 @@
+
+<!--sm: 640px md: 768 lg: 1024px-->
+<!--fazer o default como se fosse a menor tela, e usar essas
+directivas para fazer o estilo de telas maiores-->
+
 <!-- main div on the center of page -->
 <div class="flex justify-center">
   <div class="w-full flex flex-col justify-center font-sans">
 
     <!--DIV SEÇÃO INICIAL-->
-    <div class="secao-inicial p-6 bg-cover min-h-screen bg-no-repeat bg-center">
+    <div class="secao-inicial p-6 bg-cover bg-no-repeat bg-center">
       
         <!--Barra de navegação superior-->
-        <div class="flex flex-row text-sm font-semibold">
+        <div class="flex flex-row  text-sm font-semibold">
             <!--Logo-->
             <div class="flex w-1/4 justify-center">
-              <img class="w-32" src="../assets/main_logo.png">
+              <img class="w-32 " src="../assets/main_logo.png">
             </div>
             <!--Menu-->
-            <div class="flex w-3/4 text-white justify-between px-20">
+            <div class="flex w-2/4 text-white justify-between px-20">
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#sobre">Sobre</a>
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossa-operacao">Nossa operação</a>
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossos-servicos">Nossos serviços</a>
@@ -20,7 +25,7 @@
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#duvidas">Dúvidas frequentes</a>
             </div>
             <!--Botão Contato-->
-            <div class="flex w-1/4 justify-center py-6 px-28">
+            <div class="flex w-1/4 justify-center items-center py-6  px-28">
               <button (click)="scrollToElement('contato')" class="w-full bg-white hover:bg-first-color text-fifth-color
                             rounded">Contato</button>
             </div>
