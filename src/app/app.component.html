@@ -11,13 +11,13 @@ directivas para fazer o estilo de telas maiores-->
     <div class="secao-inicial p-6 bg-cover bg-no-repeat bg-center">
       
         <!--Barra de navegação superior-->
-        <div class="flex flex-row  text-sm font-semibold">
+        <div class="flex flex-col md:flex-row  text-sm font-semibold">
             <!--Logo-->
-            <div class="flex w-1/4 justify-center">
+            <div class="flex w-full md:w-1/4 justify-center mb-4 md:mb-0">
               <img class="w-32 " src="../assets/main_logo.png">
             </div>
             <!--Menu-->
-            <div class="flex w-2/4 text-white justify-between px-20">
+            <div class="flex w-full md:w-2/4 text-sm md:text-base text-white justify-between mb-4 md:mb-0">
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#sobre">Sobre</a>
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossa-operacao">Nossa operação</a>
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossos-servicos">Nossos serviços</a>
@@ -25,22 +25,22 @@ directivas para fazer o estilo de telas maiores-->
               <a class="flex items-center hover:text-first-color cursor-pointer" href="#duvidas">Dúvidas frequentes</a>
             </div>
             <!--Botão Contato-->
-            <div class="flex w-1/4 justify-center items-center py-6  px-28">
+            <div class="flex w-full md:w-1/4 justify-center items-center py-6  px-28">
               <button (click)="scrollToElement('contato')" class="w-full bg-white hover:bg-first-color text-fifth-color
                             rounded">Contato</button>
             </div>
         </div>
 
         <!--Títulos-->
-        <div class="mt-32 w-1/2 pl-24 text-white font-semibold">
-          <h1 class="text-5xl">Tecnologia de ponta <span class="text-first-color">para sua empresa decolar</span></h1>
-          <p class="mt-4 pr-48 text-justify text-sm">Utilize as tendências mais modernas da análise de dados e da inteligência artificial para fazer previsões e 
+        <div class="mt-8 md:mt-32 w-full md:w-1/2 px-4 md:pl-24 text-white font-semibold">
+          <h1 class="text-2xl md:text-5xl">Tecnologia de ponta <span class="text-first-color">para sua empresa decolar</span></h1>
+          <p class="mt-4 pr-0 md:pr-48 text-justify text-sm">Utilize as tendências mais modernas da análise de dados e da inteligência artificial para fazer previsões e 
             insights sobre seu negócio, trazendo mais eficiência, qualidade e rentabilidade. 
           </p>
         </div>
 
         <!--instagram logo-->
-        <div class="mt-24 pl-24 w-1/2 h-10 text-white">
+        <div class="mt-8 md:mt-24 px-4 md:pl-24 w-full md:w-1/2 h-10 text-white">
           <a><img class="w-6 transition duration-300 ease-in-out hover:opacity-50 cursor-pointer" src="../assets/instagram-icon.svg"
           alt="instagram logo"></a>
         </div>
@@ -50,25 +50,25 @@ directivas para fazer o estilo de telas maiores-->
 
     <!--soluções para negócios-->
     <div id="sobre" class="mt-16 mb-8 flex flex-col items-center">
-      <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Soluções personalizadas para sua empresa</h1>
-      <p class=" text-center mt-4 text-sm w-2/4 font-semibold">Análise e modelagem de dados para o caso específico do seu negócio. </p>
+      <h1 class="text-center w-3/4 md:w-1/4 text-second-color font-bold text-2xl">Soluções personalizadas para sua empresa</h1>
+      <p class=" text-center mt-4 text-sm w-full md:w-2/4 font-semibold">Análise e modelagem de dados para o caso específico do seu negócio. </p>
     </div>
 
 
     <!--sobre-->
 
-    <div class="w-full flex px-32">
-      <div class="w-1/2 flex justify-center">
-        <img class="w-3/4" src="../assets/sobre-imagem.png">
+    <div class="w-full flex flex col md:flex-row px-4 md:px-32">
+      <div class="w-full md:w-1/2 flex justify-center mb-8 md:mb-0 py-8 md:py-0">
+        <img class="w-3/4 h-1/2 sm:h-auto" src="../assets/sobre-imagem.png">
       </div>
-      <div class="w-1/2 flex flex-col py-24">
-        <div class="w-2/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
+      <div class="w-full md:w-1/2 flex flex-col py-8 md:py-24">
+        <div class="w-2/4 md:w-2/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
           SOBRE
         </div>
         <div class="font-bold text-second-color text-xl mb-4">
           IA de ponta para resultados excepcionais
         </div>
-        <div class="text-justify text-sm pr-32 font-semibold">
+        <div class="text-justify text-sm pr-0 md:pr-32 font-semibold">
           <p class="mb-2">Com a Dedalus, sua empresa incorpora as últimas
             tendências no campo da análise de dados e inteligência
             artificial para obter insights valiosos e previsões precisas,
@@ -96,9 +96,9 @@ directivas para fazer o estilo de telas maiores-->
 
     <!--nossa operação-->
 
-    <div class="w-full flex px-32 rounded-ee-full">
-      <div id="nossa-operacao" class="w-1/2 flex flex-col py-24 px-16">
-        <div class="w-4/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
+    <div class="w-full flex flex-col md:flex-row px-4 md:px-32 rounded-ee-full">
+      <div id="nossa-operacao" class="w-full md:w-1/2 flex flex-col py-8 md:py-24 px-4 md:px-16">
+        <div class="w-2/4 md:w-4/12 bg-third-color border-x-4 border-second-color text-center text-sm font-semibold mb-4">
           NOSSA OPERAÇÃO
         </div>
         <div class="font-bold text-second-color text-xl mb-4">
@@ -131,7 +131,7 @@ directivas para fazer o estilo de telas maiores-->
 
         </div>
       </div>
-      <div class="w-1/2 flex items-center">
+      <div class="w-full md:w-1/2 flex items-center justify-center md:justify-start py-8 md:py-0">
         <img class="w-4/5 h-3/4 " src="../assets/retangulos.png">
       </div>
       
@@ -144,13 +144,13 @@ directivas para fazer o estilo de telas maiores-->
     <div class="w-full bg-third-color">
       <!--Nossos serviços-->
       <div id="nossos-servicos" class=" mb-8 flex flex-col items-center ">
-        <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Nossos serviços</h1>
-        <p class=" text-center text-sm w-2/4 font-semibold"> Oferecemos serviços de análise de dados e inteligência artificial para empresas. As possibilidades não se limitam a esta lista. </p>
+        <h1 class="text-center w-3/4 md:w-1/4 text-second-color font-bold text-2xl">Nossos serviços</h1>
+        <p class=" text-center text-sm w-full md:w-2/4 font-semibold"> Oferecemos serviços de análise de dados e inteligência artificial para empresas. As possibilidades não se limitam a esta lista. </p>
       </div>
       
       <!--imagem nossos serviços-->
       <div class="w-full flex justify-center mb-8">
-        <img class="w-8/12" src="../assets/nossos servicos.png">
+        <img class="w-full md:w-8/12" src="../assets/nossos servicos.png">
       </div>
     </div>  
 
@@ -164,56 +164,56 @@ directivas para fazer o estilo de telas maiores-->
 
 
         <div>
-          <div class="flex justify-between items-end">
-              <div class="relative group">
+          <div class="flex flex-wrap justify-between items-end">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white  text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Lava-jato
                 </h3>
                 <img (click)="imageClick('lavajato')" class="w-auto h-14 group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100" src="../assets/carwash_prod.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Escritório jurídico
                 </h3>
                 <img (click)="imageClick('escritorio')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/advocacia_prod.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Joalheria
                 </h3>
                 <img (click)="imageClick('joalheria')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/joalheria_prod.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Restaurante
                 </h3>
                 <img (click)="imageClick('restaurante')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-24" src="../assets/restaurante_prod.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Sorveteria
                 </h3>
                 <img (click)="imageClick('sorveteria')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/icecream_producao.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Mercado
                 </h3>
                 <img (click)="imageClick('mercado')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/mercado_prod.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Academia
                 </h3>
                 <img (click)="imageClick('academia')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-16" src="../assets/academia_producao.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Boutique
                 </h3>
                 <img (click)="imageClick('boutique')" class="group-hover:brightness-50 transition duration-300 group-hover:text-opacity-100 w-auto h-24" src="../assets/boutique_prod.png">
               </div>
-              <div class="relative group">
+              <div class="relative group w-1/2 sm:w-auto">
                 <h3 class=" text-white text-opacity-0 group-hover:brightness-100 group-hover:text-opacity-100 transition duration-300 text-center font-semibold text-xs">
                   Clínica
                 </h3>
@@ -237,13 +237,13 @@ directivas para fazer o estilo de telas maiores-->
     <div class="w-full bg-third-color items-center">
       
       <div id="missao-valores" class=" my-8 flex flex-col items-center ">
-        <h1 class="text-center w-1/4 text-second-color font-bold text-2xl">Nossa missão e valores</h1>
-        <p class=" text-center text-sm w-2/4 font-semibold"> Evolução computacional ao alcance de nossos clientes.</p>
+        <h1 class="text-center w-3/4 md:w-1/4 text-second-color font-bold text-2xl">Nossa missão e valores</h1>
+        <p class=" text-center text-sm w-full md:w-2/4 font-semibold"> Evolução computacional ao alcance de nossos clientes.</p>
       </div>
 
       <!--imagem nossa missão-->
       <div class="w-full flex justify-center mb-8">
-        <img class="w-3/4" src="../assets/missao.png">
+        <img class="w-full md:w-3/4" src="../assets/missao.png">
       </div>
 
 
@@ -253,11 +253,11 @@ directivas para fazer o estilo de telas maiores-->
 
 
     <!--DÚVIDAS FREQUENTES-->
-    <div id="duvidas" class="w-full flex text-third-color bg-fifth-color px-32 pb-16">
+    <div id="duvidas" class="w-full flex flex-col md:flex-row text-third-color bg-fifth-color px-4 md:px-32 pb-16">
 
       <!--Conteúdo-->
-      <div class="w-8/12">
-        <h1 class="  font-bold">Dúvidas Frequentes</h1>
+      <div class="w-full md:w-8/12">
+        <h1 class="font-bold">Dúvidas Frequentes</h1>
         
         <!--colocar a faq aqui - accordion -->
         <div *ngFor="let item of faqList" class="border-b">
@@ -276,7 +276,7 @@ directivas para fazer o estilo de telas maiores-->
 
       </div>
       <!--Imagem-->
-      <div class="w-4/12 flex justify-center items-center">
+      <div class="w-full md:w-4/12 flex justify-center items-center mt-8 md:mt-0">
           <img class="h-96 w-auto" src="../assets/pergunta.png">
       </div>
     </div>
@@ -285,19 +285,19 @@ directivas para fazer o estilo de telas maiores-->
     <!--contato-->
     <div id="contato" class="w-full flex flex-col py-16 bg-second-color items-center">
       <img class="w-2/12 mb-8" src="../assets/main_logo.png">
-      <p class="text-white">
+      <p class="text-white text-center px-4 md:px-0">
         Tem um projeto em mente ou deseja saber como podemos te ajudar?
       </p>
-      <p class="text-white mb-16">Entre em contato!</p>
+      <p class="text-white mb-16 text-center px-4 md:px-0">Entre em contato!</p>
 
-      <div class="text-white flex flex-col w-3/12">
-        <div class="flex mr-4 text-sm">
+      <div class="text-white flex flex-col w-full md:w-3/12">
+        <div class="flex flex-col md:flex-row mr-4 text-sm mb-4 md:mb-0">
           <p class="w-full text-third-color">
             Email
           </p>
           <p class="w-full text-left font-semibold">dedalusbi&#64;gmail.com</p>
         </div>
-        <div class="flex  text-sm">
+        <div class="flex flex-col md:flex-row text-sm">
           <p class="w-full text-third-color">
             Direct do instagram
           </p>
