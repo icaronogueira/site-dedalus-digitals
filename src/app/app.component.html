@@ -11,21 +11,21 @@ directivas para fazer o estilo de telas maiores-->
     <div class="secao-inicial p-6 bg-cover bg-no-repeat bg-center">
       
         <!--Barra de navegação superior-->
-        <div class="flex flex-col md:flex-row  text-sm font-semibold">
+        <div class="flex flex-wrap flex-col md:flex-row  text-sm font-semibold">
             <!--Logo-->
             <div class="flex w-full md:w-1/4 justify-center mb-4 md:mb-0">
               <img class="w-32 " src="../assets/main_logo.png">
             </div>
             <!--Menu-->
-            <div class="flex w-full md:w-2/4 text-sm md:text-base text-white justify-between mb-4 md:mb-0">
-              <a class="flex items-center hover:text-first-color cursor-pointer" href="#sobre">Sobre</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossa-operacao">Nossa operação</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer" href="#nossos-servicos">Nossos serviços</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer" href="#missao-valores">Nossa missão</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer" href="#duvidas">Dúvidas frequentes</a>
+            <div class="flex flex-wrap w-full md:w-2/4 text-sm md:text-base text-white justify-around mb-4 md:mb-0">
+              <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#sobre">Sobre</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#nossa-operacao">Nossa operação</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#nossos-servicos">Nossos serviços</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#missao-valores">Nossa missão</a>
+              <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#duvidas">Dúvidas frequentes</a>
             </div>
             <!--Botão Contato-->
-            <div class="flex w-full md:w-1/4 justify-center items-center py-6  px-28">
+            <div class="flex w-full md:w-1/4 justify-center items-center py-2 md:py-6 px-4 md:px-28">
               <button (click)="scrollToElement('contato')" class="w-full bg-white hover:bg-first-color text-fifth-color
                             rounded">Contato</button>
             </div>
@@ -107,7 +107,12 @@ directivas para fazer o estilo de telas maiores-->
         </div>
       </div>
       <div class="w-full md:w-1/2 flex items-center justify-center md:justify-start py-8 md:py-0">
-        <img class="w-4/5 h-3/4 " src="../assets/retangulos.png">
+        <div class="w-full max-w-3xl border-8 border-second-color rounded-lg">
+          <video controls class="w-full shadow-lg">
+            <source src="https://res.cloudinary.com/dvwuovzoe/video/upload/v1720736696/invideo_nossa_operacao_bzwygo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
       
     </div>
