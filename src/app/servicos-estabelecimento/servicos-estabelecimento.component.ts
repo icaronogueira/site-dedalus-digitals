@@ -6,8 +6,10 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './servicos-estabelecimento.component.html',
-  styleUrl: './servicos-estabelecimento.component.css'
+  styleUrl: './servicos-estabelecimento.component.css',
+  
 })
+
 export class ServicosEstabelecimentoComponent {
   @Input() estabelecimento: string = "";
 }
