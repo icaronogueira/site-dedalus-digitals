@@ -20,28 +20,47 @@ directivas para fazer o estilo de telas maiores-->
             <div class="flex flex-wrap w-full md:w-2/4 text-sm md:text-base text-white justify-around mb-4 md:mb-0">
               <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#sobre">Sobre</a>
               <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#nossa-operacao">Nossa operação</a>
-              <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#nossos-servicos">Nossos serviços</a>
               <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#missao-valores">Nossa missão</a>
               <a class="flex items-center hover:text-first-color cursor-pointer text-center" href="#duvidas">Dúvidas frequentes</a>
             </div>
-            <!--Botão Contato-->
-            <div class="flex w-full md:w-1/4 justify-center items-center py-2 md:py-6 px-4 md:px-28">
-              <button (click)="scrollToElement('contato')" class="w-full bg-white hover:bg-first-color text-fifth-color
-                            rounded">Contato</button>
-            </div>
+            
         </div>
 
         <!--Títulos-->
-        <div class="mt-8 md:mt-32 w-full md:w-1/2 px-4 md:pl-24 text-white font-semibold">
-          <h1 class="text-2xl md:text-5xl">Tecnologia de ponta <span class="text-first-color">para sua empresa decolar</span></h1>
+        <div class="mt-8 md:mt-32 w-full md:w-1/2 px-4 md:pl-24">
+          <h1 class="text-2xl md:text-5xl text-white font-semibold">Dados inspiram decisões... <br/>
+            <span class="text-2xl md:text-7xl text-first-color font-semibold">Análise previsiva para otimizar o seu negócio</span></h1>
+        
+          <div class="flex w-full justify-around md:justify-around items-center flex-wrap md:flex-nowrap mt-14">
+              
+              
+              <!--Botão Nossos serviços-->
+              <div class="bg-first-color text-fifth-color font-semibold px-8 py-3 rounded-full shadow-md hover:opacity-90 transition duration-300">
+                <button (click)="scrollToElement('nossos-servicos')">NOSSOS SERVIÇOS</button>
+              </div>
+              <!--Botão Contato-->
+              <div class="bg-third-color text-fifth-color font-semibold px-8 py-3 rounded-full shadow-md hover:opacity-90 transition duration-300">
+                <button (click)="scrollToElement('contato')">ENTRE EM CONTATO</button>
+              </div>
+
+              
+          </div>
+        
         </div>
+        
+        
+
     </div>
 
 
     <!--soluções para negócios-->
     <div id="sobre" class="mt-16 mb-8 flex flex-col items-center">
-      <h1 class="text-center w-3/4 md:w-1/4 text-second-color font-bold text-2xl">Soluções personalizadas para sua empresa</h1>
-      <p class=" text-center mt-4 text-sm w-full md:w-2/4 font-semibold">Análise e modelagem de dados para o caso específico do seu negócio. </p>
+      <h1 class="text-center w-3/4 md:w-1/4 text-second-color font-bold text-2xl">Sobre</h1>
+      <p class="text-center mt-8 text-base w-full md:w-3/4">
+        <span class="font-semibold">Somos uma empresa sediada em Manaus/AM que tem como objetivo proporcionar segurança na tomada de decisões em sua empresa. </span><br/>
+        <span class="text-sm">Utilizando algoritmos de Aprendizado de Máquina, identificamos padrões e tendências não acessíveis de outra forma. <br/>
+        Nossos serviços podem ser aplicados em todas as áreas de sua empresa, em uma amplidão de possíveis projetos que trarão eficiência e economia. </span>
+      </p>
     </div>
 
 
@@ -49,7 +68,7 @@ directivas para fazer o estilo de telas maiores-->
 
     
       <div id="sobre" class="flex justify-center items-center bg-gray-100 p-4">
-        <div class="w-full max-w-3xl border-8 border-second-color rounded-lg">
+        <div class="w-full max-w-2xl border-0">
           <video controls class="w-full shadow-lg">
             <source src="https://res.cloudinary.com/dvwuovzoe/video/upload/v1720712508/video-promo-dedalus_sfwvpp.mp4" type="video/mp4" />
             Your browser does not support the video tag.
